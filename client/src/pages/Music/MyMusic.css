@@ -1,0 +1,33 @@
+.contenedor-music{
+    display: flex;
+    justify-content: center;
+    margin-left: 400px;
+    flex-direction: column;
+    margin-top: 100px;
+    
+}
+
+.title-music{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.subtitle-music{
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.img-container{
+    margin-top: 30px;
+}
+
+.p-container{
+    margin-top: 10px;
+    color: #B8B8B8;
+}
+
+.icon-music{
+    position: relative;
+    bottom: 3px;
+    margin-right: 4px;
+}
