@@ -1,11 +1,13 @@
 import './App.css'
-import Login from './pages/Login'
+import MyMusic from './pages/Music/MyMusic'
+// import Login from './pages/Login'
 
 function App() {
 
   return (
     <>
-      <Login />
+      {/* <Login /> */}
+      <MyMusic></MyMusic>
     </>
   )
 }
