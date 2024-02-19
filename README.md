@@ -1,1 +1,7 @@
-# s13-01-m-node-react
+# ROUNDPEOPLE
+<div align="center">
+  <a>
+    <img src=" " alt="LogotipoRoundPeople" width="50%">
+  </a>
+  <h3 align="center"> Welcome to ROUNDPEOPLE </h3>
+</div>
