@@ -1,6 +1,6 @@
 import "./App.css";
-import LoginPage from "./pages/Auth/LoginPage";
-import RegisterPage from "./pages/Auth/RegisterPage";
+import { LoginPage } from "./pages/auth/LoginPage";
+import { RegisterPage } from "./pages/auth/RegisterPage";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyMusic from "./pages/Music/MyMusic";
@@ -8,7 +8,6 @@ import MyMusic from "./pages/Music/MyMusic";
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Navbar />
         <MyMusic />
         <Routes>
@@ -17,7 +16,6 @@ function App() {
             <Route path="register" element={<RegisterPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
     </>
   );
 }
