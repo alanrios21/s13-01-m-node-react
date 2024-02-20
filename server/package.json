@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "prisma generate && nodemon index.js ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "Jorge Lozano , Jose Hernandez",
