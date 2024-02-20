@@ -5,6 +5,11 @@
       "use": "@vercel/node"
     }
   ],
+  "scripts": [
+    {
+      "postinstall": "prisma generate"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
