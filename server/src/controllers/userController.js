@@ -5,17 +5,23 @@ const { encryptPassword } = require("../utils/passwordHash");
 
 const signUp = async (body) => {
     const validateUsers = await validateUser(body);
+
     if (validateUsers.containErrors) {
         throw new Error(JSON.stringify(validateUsers));
     }
+
+    // Validar el formato del correo electrónico
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(body.email)) {
+        throw new Error("The email format is not valid.");
+    }
+
     const user = await prisma.user.create({
         data: {
             ...body,
             birthday: new Date(body.birthday),
             password: await encryptPassword(body.password),
         },
-
-        // User sin exponer el password 
         select: {
             ...Object.keys(body).reduce((acc, key) => {
                 if (key !== 'password') {
@@ -25,6 +31,7 @@ const signUp = async (body) => {
             }, {}),
         },
     });
+
     return { ...user, ...validateUsers };
 };
 
@@ -35,27 +42,32 @@ const getUsers = async () => {
 
 
 const getUserById = async function (id) {
-    if (!id) {
-        throw new Error(
-            "To search for a user by ID, please enter the user ID."
-        );
-    }
+    const idPattern = /^[0-9a-f]{24}$/i;
 
-    const result = await prisma.user.findUnique({
-        where: { id },
-        include: {
-            images: true,
-            videos: true,
-            music: true,
-            posts: true,
-            donations: true,
-        },
-    });
-    if (!id) {
-        throw new Error("The user you are looking for does not exist.");
-    }
+    if (id) {
+        if (!idPattern.test(id)) {
+            throw new Error("The ID does not comply with the expected format.");
+        }
 
-    return result;
+        const result = await prisma.user.findUnique({
+            where: { id: id },
+            include: {
+                images: true,
+                videos: true,
+                music: true,
+                posts: true,
+                donations: true,
+            },
+        });
+
+        if (!result) {
+            throw new Error("The user you are looking for does not exist.");
+        }
+
+        return result;
+    } else {
+        throw new Error("To search for a user by ID, please enter valid user ID.");
+    }
 };
 
 

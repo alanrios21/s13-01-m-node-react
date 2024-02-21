@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "ROUND-PEOPLE API",
     "description": ""
   },
-  "host": "localhost:3001",
+  "host": "localhost:3001, https://roundpeopleapi.vercel.app",
   "basePath": "/",
   "schemes": ["http"],
   "paths": {}

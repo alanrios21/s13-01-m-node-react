@@ -22,10 +22,11 @@ model User {
   password             String
   profileImage         String?         @default("https://www.svgrepo.com/show/437117/person-crop-circle.svg")
   instruments          String?
+  about                String?
+  musical_influence    String?
   collaborator         collaborator
   musical_genre        Musical_genre
   posts                Posts[]
-  reviews              Review[]
   donations            Donation[]
   images               Image[]
   videos               Video[] 
@@ -89,17 +90,6 @@ model Donation {
   user                 User?           @relation(fields: [userId], references: [id])
   postsID              String          @db.ObjectId
   posts                Posts?          @relation(fields: [postsID], references: [id])
-}
-
-
-model Review {
-  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
-  title                String
-  body                 String
-  rating               String
-  dateReview           DateTime        @default(now())
-  userIDs              String?         @db.ObjectId
-  users                User?           @relation(fields: [userIDs], references: [id])
 }
 
 
