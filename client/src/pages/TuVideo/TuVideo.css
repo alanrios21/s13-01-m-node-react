@@ -1,4 +1,4 @@
-.contenedor-music{  
+.contenedor-video{  
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,16 +7,16 @@
     justify-content: center;
 }
 
-.title-music{
+.title-video{
     font-weight: 600;
     font-size: 30px;
-    margin-right: 330px;
+    margin-right: 360px;
 }
 
-.subtitle-music{
+.subtitle-video{
     margin-top: 20px;
     font-size: 25px;
-    margin-right: 380px;
+    margin-right: 420px;
 }
 
 .img-container{
@@ -26,10 +26,10 @@
 .p-container{
     margin-top: 10px;
     color: #B8B8B8;
-    margin-right: 300px;
+    margin-right: 320px;
 }
 
-.icon-music{
+.icon-video{
     position: relative;
     bottom: 3px;
     margin-right: 4px;
@@ -45,11 +45,11 @@
         margin-right: 90px;
     }
 
-    .subtitle-music{
+    .subtitle-video{
         margin-right: 180px;
     }
 
-    .title-music{
+    .title-video{
         margin-right: 130px;
     }
 }
