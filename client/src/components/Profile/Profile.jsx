@@ -1,5 +1,4 @@
 
-import React from "react";
 import tecladista from "../../assets/tecladista 2.png"
 import boton from "../../assets/Add multimedia.png"
 
