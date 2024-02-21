@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="absolute left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
+      <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
         <div className="flex justify-between items-center px-4">
           <div className="flex items-center">
             {menuOpen ? (
@@ -46,7 +46,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="py-2">
-              <Link to="/perfil" className="text-white" onClick={closeMenu}>
+              <Link to="/profile/fill" className="text-white" onClick={closeMenu}>
                 <img src={perfil} alt="Perfil" className="inline-block w-6 mr-2" />
                 Perfil
               </Link>
