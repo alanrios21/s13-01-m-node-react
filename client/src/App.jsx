@@ -1,6 +1,7 @@
 import "./App.css";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
+import { ProfileFill } from "./pages/profile/ProfileFill"
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import MyMusic from "./pages/Music/MyMusic";
@@ -16,6 +17,9 @@ function App() {
           <Route path="/auth">
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
+          </Route>
+          <Route path="/profile">
+            <Route path="fill" element={<ProfileFill />} />
           </Route>
         </Routes>
     </>
