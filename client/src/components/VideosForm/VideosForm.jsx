@@ -26,7 +26,7 @@ const VideosForm = () => {
   };
 
   return (
-    <div className='ml-4'>
+    <div className='ml-2 p-2'>
       <h1 className='text-xl font-bold mt-2'>Contenido multimedia</h1>
       <h2 className='font-bold mt-4'>Videos</h2>
       <p className='mt-2'>Cada video es una oportunidad para contar tu historia de una manera visualmente emocionante. 
