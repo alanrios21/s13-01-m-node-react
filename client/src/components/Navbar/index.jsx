@@ -11,6 +11,7 @@ import support from '../../assets/support.png';
 import exit1 from '../../assets/exit1.png';
 import close1 from '../../assets/close1.png';
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(window.innerWidth > 768);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
