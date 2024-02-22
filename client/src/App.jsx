@@ -8,8 +8,10 @@ import Videos from './pages/Videos/Videos';
 
 function App() {
   return (
-    <>
+    <div>
+      <div className="mt-[60px]">
         <Navbar />
+      </div>
         <Routes>
         <Route path="/videos" element={<Videos />} />
         <Route path="/music" element={<MyMusic />} />
@@ -18,7 +20,7 @@ function App() {
             <Route path="register" element={<RegisterPage />} />
           </Route>
         </Routes>
-    </>
+    </div>
   );
 }
 
