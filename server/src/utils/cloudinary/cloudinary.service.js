@@ -64,7 +64,17 @@ const uploadMusic = async (file) => {
     }
 };
 
-module.exports = { uploadImage, uploadVideo, uploadMusic };
+const deleteFile = async (publicId) => {
+    try {
+        const result = await v2.uploader.destroy(publicId);
+        return result;
+    } catch (error) {
+        console.error('Error deleting file from Cloudinary:', error);
+        throw error;
+    }
+};
+
+module.exports = { uploadImage, uploadVideo, uploadMusic, deleteFile };
 
 
 
