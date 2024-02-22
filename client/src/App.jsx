@@ -1,31 +1,31 @@
 import "./App.css";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
-import { ProfileFill } from "./pages/profile/ProfileFill"
+import { ProfileFill } from "./pages/profile/ProfileFill";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import MyMusic from "./pages/Music/MyMusic";
-import Videos from './pages/Videos/Videos';
+import Videos from "./pages/Videos/Videos";
 import TuVideo from "./pages/TuVideo/TuVideo";
 
 function App() {
   return (
     <div>
-      <div className="mt-[60px]">
+      <div className="mt-[45px]">
         <Navbar />
       </div>
-        <Routes>
+      <Routes>
         <Route path="/videos" element={<Videos />} />
         <Route path="/music" element={<MyMusic />} />
         <Route path="/my-video" element={<TuVideo />} />
-          <Route path="/auth">
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
-          <Route path="/profile">
-            <Route path="fill" element={<ProfileFill />} />
-          </Route>
-        </Routes>
+        <Route path="/auth">
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+        </Route>
+        <Route path="/profile">
+          <Route path="fill" element={<ProfileFill />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
