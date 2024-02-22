@@ -41,7 +41,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className='mb-[60px]' >
       <div className="absolute left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
         <div className="flex justify-between items-center px-4">
           <div className="flex items-center">
@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className={`absolute left-0 top-12 bg-[#2B1A4E] py-2 w-[200px] ${menuOpen ? 'block' : 'hidden'}`}>
+      <div className={`absolute left-0 top-12 bg-[#2B1A4E] py-2 w-[200px] ${menuOpen ? 'block' : 'hidden'} `}>
         <ul className="flex flex-col p-4">
           <li className="py-2">
             <Link to="/" className="text-white" onClick={closeMenu}>
