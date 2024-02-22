@@ -13,50 +13,50 @@ import close1 from '../../assets/close1.png';
 
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(window.innerWidth > 768);
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
+  const [menuOpen, setMenuOpen] = useState(false);
+  // const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
 
   const toggleMenu = () => {
-    if (window.innerWidth <= 768) {
+    
       setMenuOpen(!menuOpen);
-    }
+    
   };
 
   const closeMenu = () => {
-    if (window.innerWidth <= 768) {
+    
       setMenuOpen(false);
-    }
+    
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth > 1024);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsLargeScreen(window.innerWidth > 1024);
+  //   };
 
-    window.addEventListener('resize', handleResize);
+  //   window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
   return (
-    <div className='mb-[60px]' >
-      <div className="absolute left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
+    <div className='' >
+      <div className="  left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
         <div className="flex justify-between items-center px-4">
           <div className="flex items-center">
-            {isLargeScreen ? null : (
+            {/* {isLargeScreen ? null : ( */}
               <img
                 src={menuOpen ? close1 : menu1}
                 alt={menuOpen ? 'Close' : 'Menu'}
                 className="cursor-pointer mr-4"
                 onClick={toggleMenu}
               />
-            )}
+            {/* )} */}
             <img
               src={logo}
               alt="Logo"
-              className={`h-8 ${isLargeScreen ? 'ml-[190px]' : ''}`}
+              className={`h-8 ml-[190px] : ''}`}
             />
           </div>
         </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="py-2">
-            <Link to="/perfil" className="text-white" onClick={closeMenu}>
+            <Link to="/profile/fill" className="text-white" onClick={closeMenu}>
               <img src={perfil} alt="Perfil" className="inline-block w-6 mr-2" />
               Perfil
             </Link>
