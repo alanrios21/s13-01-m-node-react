@@ -10,8 +10,10 @@ import TuVideo from "./pages/TuVideo/TuVideo";
 
 function App() {
   return (
-    <>
+    <div>
+      <div className="mt-[60px]">
         <Navbar />
+      </div>
         <Routes>
         <Route path="/videos" element={<Videos />} />
         <Route path="/music" element={<MyMusic />} />
@@ -24,7 +26,7 @@ function App() {
             <Route path="fill" element={<ProfileFill />} />
           </Route>
         </Routes>
-    </>
+    </div>
   );
 }
 
