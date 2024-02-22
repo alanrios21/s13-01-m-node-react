@@ -1,0 +1,12 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ROUND-PEOPLE API",
+    "description": ""
+  },
+  "host": "localhost:3001, roundpeopleapi.vercel.app",
+  "basePath": "/",
+  "schemes": ["http, https"],
+  "paths": {}
+}

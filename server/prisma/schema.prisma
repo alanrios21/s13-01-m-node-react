@@ -1,0 +1,182 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+   
+model User {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  firstName            String
+  lastName             String
+  country              String
+  province             String
+  birthday             DateTime
+  phone                String
+  email                String          @unique
+  password             String
+  profileImage         String?         @default("https://www.svgrepo.com/show/437117/person-crop-circle.svg")
+  instruments          String?
+  about                String?
+  musical_influence    String?
+  collaborator         collaborator
+  musical_genre        Musical_genre
+  posts                Posts[]
+  donations            Donation[]
+  images               Image[]
+  videos               Video[] 
+  music                Music[] 
+}
+
+model Posts {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  title                String
+  description          String
+  deadLine             DateTime
+  startDate            DateTime
+  endDate              DateTime
+  country              String
+  province             String
+  address              String
+  galery               String?
+  startHour            String
+  endHour              String
+  extraInfo            String
+  createdAt            DateTime        @default(now()) @map("_created_at")
+  updatedAt            DateTime        @updatedAt @map("_updated_at")
+  userIDs              String          @db.ObjectId
+  users                User?           @relation(fields: [userIDs], references: [id])
+  donations            Donation[]
+}
+
+
+
+
+model Image {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  url                  String
+  userId               String          @db.ObjectId
+  user                 User?           @relation(fields: [userId], references: [id])
+}
+
+model Video {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  url                  String
+  userId               String          @db.ObjectId
+  user                 User?           @relation(fields: [userId], references: [id])
+}
+
+model Music {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  url                  String
+  userId               String          @db.ObjectId
+  user                 User?           @relation(fields: [userId], references: [id])
+}
+
+
+
+model Donation {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  TransactionId        String
+  amount               Int
+  cardType             String
+  creadtedAt           DateTime        @default(now())
+  userId               String          @db.ObjectId
+  user                 User?           @relation(fields: [userId], references: [id])
+  postsID              String          @db.ObjectId
+  posts                Posts?          @relation(fields: [postsID], references: [id])
+}
+
+
+
+enum collaborator {
+  yes
+  no
+}
+
+enum  Musical_genre {
+  bachata
+	blues
+	bossa_nova
+	cumbia
+  country
+	dance
+	electronica
+	folk
+  flamenco
+	funk
+	hip_hop
+	indie
+	jazz
+	mariachi
+	metal
+  otro
+	pop
+	punk
+	ryb
+	ranchera
+	rap
+	reggae
+	reggaeton
+	rock
+	salsa
+	ska
+	soul
+	tango
+	trap
+	trova
+	vallenato
+}
+
+enum Instruments {
+  acordeon
+  arpa
+  bateria
+  banjo
+  bajo
+  bongo
+  cimbalo
+  citara
+  clave
+  clavecin
+  clarinete
+  conga
+  contrabajo
+  corno
+  djembe
+  didgeridoo
+  dulzaina
+  espineta
+  fagot
+  flauta
+  gaita
+  guitarra
+  guitarra_electrica
+  kalimba
+  laud
+  mandolina
+  marimba
+  oboe
+  organo
+  pandereta
+  piano
+  saxofon
+  sintetizador
+  sitar
+  tambor
+  theremin
+  timbales
+  trombon
+  trompeta
+  tuba
+  ukulele
+  violin
+  violonchelo
+  xilofono
+  guiro
+}
