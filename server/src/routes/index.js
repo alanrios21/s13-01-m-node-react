@@ -13,7 +13,8 @@ const router = Router();
 router.use('/users', userRouter);
 router.use("/login", loginRouter);
 router.use("/logout", logoutRouter);
-router.use("/upload", mContentRouter);
+router.use("/multimedia", mContentRouter);
+
 
 module.exports = router;
 

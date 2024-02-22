@@ -5,8 +5,8 @@
     "title": "ROUND-PEOPLE API",
     "description": ""
   },
-  "host": "localhost:3001, https://roundpeopleapi.vercel.app",
+  "host": "localhost:3001, roundpeopleapi.vercel.app",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["http, https"],
   "paths": {}
 }
