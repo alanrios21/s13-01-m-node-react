@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
  *         type: string
  *         required: true
  *         description: User id  
- *         example: 65ce0847408d9559318c5fbd
+ *   
  *     responses:
  *      200:
  *         description: Success
@@ -82,7 +82,7 @@ router.get("/:id", async (req, res) => {
  *           type: string
  *         required: true
  *         description: User id
- *         example: 65ce0847408d9559318c5fbd
+ *     
  * 
  * 
  *     requestBody:
@@ -91,7 +91,7 @@ router.get("/:id", async (req, res) => {
  *         application/json:
  *          
  *           example:
- *              firstName: Delwin
+ *              firstName: ""
  *             
  *     responses:
  *     200:
@@ -119,23 +119,23 @@ router.put("/update/:id", async (req, res) => {
  *       - Users
  *      description: Add new user
  *      requestBody:
- *          description: A JSON object containing pet information
+ *          description: A JSON object containing user information
  *          content:
  *             application/json:
  *              
  *                 example:
- *                    userName: Delwin183
- *                    firstName: Delwin
- *                    lastName: Hernandez
- *                    country: Venezuela
- *                    province: Zulia
- *                    birthday: 10/08/1987
- *                    phone: +5841276424788
- *                    email: Delwin183@gmail.com
- *                    password: 123456789
- *                    instruments: piano
- *                    collaborator: yes
- *                    musical_genre: electronica
+ *                    userName:  ""
+ *                    firstName: ""
+ *                    lastName:  ""
+ *                    country:   ""
+ *                    province:  ""
+ *                    birthday:  ""
+ *                    phone: ""
+ *                    email: ""
+ *                    password: ""
+ *                    instruments: ""
+ *                    collaborator: "" 
+ *                    musical_genre: ""
  * 
  *      responses:
  *      200:
