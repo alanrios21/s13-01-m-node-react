@@ -8,8 +8,10 @@ export const loginRequest = async (email, password) => {
   return response.data;
 };
 
-export const register = async (email, password) => {
-  const response = await httpInstance.post("/auth/register", {
+export const register = async ({ email, password, firstName, lastName }) => {
+  const response = await httpInstance.post("/users/newuser", {
+    firstName,
+    lastName,
     email,
     password,
   });

@@ -1,4 +1,4 @@
-import { loginRequest } from "../../../api/auth/index";
+import { register } from "../../../api/auth/index";
 import { useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 
@@ -6,8 +6,8 @@ export const RegisterForm = () => {
   const { login } = useAuth();
 
   const [formData, setFormData] = useState({
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     passwordConfirm: "",
@@ -26,11 +26,16 @@ export const RegisterForm = () => {
     console.log("submit");
     e.preventDefault();
 
-    const { email, password } = formData;
+    const { email, password, firstName, lastName } = formData;
     setFormData({ ...formData, loading: true });
 
     try {
-      const user = await loginRequest(email, password);
+      const user = await register({
+        email,
+        password,
+        firstName,
+        lastName,
+      });
       setFormData({ ...formData, loading: false });
       login(user.data);
     } catch (error) {
@@ -59,8 +64,8 @@ export const RegisterForm = () => {
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="firstName"
+                value={formData.firstName}
                 onChange={handleChange}
                 className="form-control w-full border-none outline-none"
                 placeholder="Correo electronico"
@@ -72,8 +77,8 @@ export const RegisterForm = () => {
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
                 type="text"
-                name="lastname"
-                value={formData.lastname}
+                name="lastName"
+                value={formData.lastName}
                 onChange={handleChange}
                 className="form-control w-full border-none outline-none"
                 placeholder="Correo electronico"
