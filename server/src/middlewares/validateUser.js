@@ -22,9 +22,7 @@ async function validateUser(body) {
     }
 
     const existingUser = await prisma.user.findFirst({
-        where: {
-            OR: [{ email: body.email }],
-        },
+        where: { email: body.email, },
     });
     if (existingUser) {
         if (existingUser.email === body.email) {
