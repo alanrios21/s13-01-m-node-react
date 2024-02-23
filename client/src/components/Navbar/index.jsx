@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import menu1 from '../../assets/menu1.png';
 import logo from '../../assets/logo.png';
 import inicio from '../../assets/inicio.png';
@@ -107,6 +107,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+      <Outlet />
     </div>
   );
 };
