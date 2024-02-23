@@ -13,7 +13,7 @@ const isAuthenticated = (req, res, next) => {
     if (req.session.userId) {
         next();
     } else {
-        res.status(401).json({ error: 'Unauthorized' });
+        res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
     }
 };
 // Configurar multer para manejar la carga de archivos en memoria
@@ -41,26 +41,35 @@ CloudinaryProvider();
 /**
  * @swagger
  * /upload/image:
- *  post:
- *      summary: Upload Images
- *      tags:
+ *   post:
+ *     summary: Upload Images
+ *     tags:
  *       - Multimedia Content
- *      description: Add image 
- *      requestBody:
- *          description: A JSON object containing pet information
- *          content:
- *             application/json:
- *              
- *                 example:
-
- * 
- *      responses:
- *      200:
- *          description: Success
- *      400:
- *          description: Failed
- *      500:
- *          description: Internal Server Error
+ *     description: Add image 
+ *     security:
+ *       - sessionAuth: []  # Referencia al esquema de seguridad definido en swagger.js
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       '200':
+ *         description: Image uploaded successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               url: "https://cloudinary.com/image.jpg"
+ *       '400':
+ *         description: Bad request or no image file provided
+ *       '401':
+ *         description: Unauthorized, Please log in with email and password
+ *       '500':
+ *         description: Internal Server Error
  */
 
 // Ruta para cargar imágenes
@@ -91,28 +100,36 @@ router.post('/upload/image', isAuthenticated, upload.single('image'), async (req
 /**
  * @swagger
  * /upload/video:
- *  post:
- *      summary: Upload Videos
- *      tags:
+ *   post:
+ *     summary: Upload Videos
+ *     tags:
  *       - Multimedia Content
- *      description: Add Video 
- *      requestBody:
- *          description: A JSON object containing pet information
- *          content:
- *             application/json:
- *              
- *                 example:
-
- * 
- *      responses:
- *      200:
- *          description: Success
- *      400:
- *          description: Failed
- *      500:
- *          description: Internal Server Error
+ *     description: Add Video 
+ *     security:
+ *       - sessionAuth: []
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               video:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       '200':
+ *         description: Video uploaded successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               url: "https://cloudinary.com/video.mp4"
+ *       '400':
+ *         description: Bad request or no video file provided
+ *       '401':
+ *         description: Unauthorized, Please log in with email and password
+ *       '500':
+ *         description: Internal Server Error
  */
-
 
 // Ruta para cargar videos
 router.post('/upload/video', isAuthenticated, uploadV.single('video'), async (req, res) => {
@@ -141,28 +158,36 @@ router.post('/upload/video', isAuthenticated, uploadV.single('video'), async (re
 /**
  * @swagger
  * /upload/music:
- *  post:
- *      summary: Upload Music Tracks
- *      tags:
+ *   post:
+ *     summary: Upload Music Tracks
+ *     tags:
  *       - Multimedia Content
- *      description: Add music track
- *      requestBody:
- *          description: A JSON object containing pet information
- *          content:
- *             application/json:
- *              
- *                 example:
-
- * 
- *      responses:
- *      200:
- *          description: Success
- *      400:
- *          description: Failed
- *      500:
- *          description: Internal Server Error
+ *     description: Add music track
+ *     security:
+ *       - sessionAuth: []
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               track:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       '200':
+ *         description: Music track uploaded successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               url: "https://cloudinary.com/music.mp3"
+ *       '400':
+ *         description: Bad request or no music file provided
+ *       '401':
+ *         description: Unauthorized, Please log in with email and password
+ *       '500':
+ *         description: Internal Server Error
  */
-
 
 // Ruta para cargar música
 router.post('/upload/music', isAuthenticated, uploadM.single('track'), async (req, res) => {
@@ -190,22 +215,40 @@ router.post('/upload/music', isAuthenticated, uploadM.single('track'), async (re
 
 /**
  * @swagger
- * /:type/:id:
- *  delete:
- *      summary: Delete Musics, Videos o Tracks
- *      tags:
+ * /{type}/{id}:
+ *   delete:
+ *     summary: Delete Musics, Videos o Tracks
+ *     tags:
  *       - Multimedia Content
- *      description: Delete Musics, Videos o Tracks
- 
-
- * 
- *      responses:
- *      200:
- *          description: Success
- *      400:
- *          description: Failed
- *      500:
- *          description: Internal Server Error
+ *     description: Delete Musics, Videos o Tracks
+ *     security:
+ *       - sessionAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: type
+ *         schema:
+ *           type: string
+ *         description: Type of the file (image, video, music)
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         description: ID of the file
+ *     responses:
+ *       '200':
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "File deleted successfully"
+ *       '400':
+ *         description: Bad request or invalid file type
+ *       '401':
+ *         description: Unauthorized, Please log in with email and password
+ *       '404':
+ *         description: File not found
+ *       '500':
+ *         description: Internal Server Error
  */
 
 // Ruta para eliminar archivos
