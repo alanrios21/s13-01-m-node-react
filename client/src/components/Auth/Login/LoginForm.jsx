@@ -29,7 +29,7 @@ export const LoginForm = () => {
     try {
       const user = await loginRequest(email, password);
       setFormData({ ...formData, loading: false });
-      login(user.data);
+      login(user);
     } catch (error) {
       setFormData({
         ...formData,
