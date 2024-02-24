@@ -15,6 +15,16 @@ export const LoginForm = () => {
     showPassword: false,
   });
 
+  const validateForm = () => {
+    const { email, password } = formData;
+    if (!email || !password) {
+      setFormData({ ...formData, error: "Todos los campos son obligatorios" });
+      clearError();
+      return false;
+    }
+    return true;
+  };
+
   const clearError = () => {
     setTimeout(() => {
       setFormData({ ...formData, error: "" });
@@ -23,6 +33,8 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
 
     const { email, password } = formData;
     setFormData({ ...formData, loading: true });
