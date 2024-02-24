@@ -1,9 +1,11 @@
 import { loginRequest } from "../../../api/auth/index";
 import { useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,7 +22,6 @@ export const LoginForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("submit");
     e.preventDefault();
 
     const { email, password } = formData;
@@ -30,6 +31,7 @@ export const LoginForm = () => {
       const user = await loginRequest(email, password);
       setFormData({ ...formData, loading: false });
       login(user);
+      navigate("/");
     } catch (error) {
       setFormData({
         ...formData,

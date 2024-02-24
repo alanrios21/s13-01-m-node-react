@@ -10,9 +10,14 @@ import settings from "../../assets/settings.png";
 import support from "../../assets/support.png";
 import exit1 from "../../assets/exit1.png";
 import close1 from "../../assets/close1.png";
+import { useAuth } from "../../hooks/useAuth";
+import { logout } from "../../api/auth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { logout: logoutUser, user } = useAuth();
+  const navigate = useNavigate();
   // const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
 
   const toggleMenu = () => {
@@ -21,6 +26,18 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+
+  const handleAuthMenu = async () => {
+    if (!user) {
+      console.log("No user");
+      navigate("/auth/login");
+      return;
+    }
+
+    closeMenu();
+    await logout();
+    logoutUser();
   };
 
   // useEffect(() => {
@@ -123,10 +140,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="py-2 mt-36">
-            <Link to="/" className="text-[red]" onClick={closeMenu}>
+            <button
+              className={"text-[red] " + "outline-none border-none"}
+              onClick={handleAuthMenu}
+            >
               <img src={exit1} alt="exit" className="inline-block w-6 mr-2" />
-              Cerrar sesión
-            </Link>
+              {user ? "Cerrar " : "Iniciar "} sesión
+            </button>
           </li>
         </ul>
       </div>
