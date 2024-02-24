@@ -1,15 +1,16 @@
-import { loginRequest } from "../../../api/auth/index";
+import { register } from "../../../api/auth/index";
 import { useState } from "react";
-import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
-  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
+    collaborator: "",
     passwordConfirm: "",
     error: "",
     loading: false,
@@ -22,17 +23,40 @@ export const RegisterForm = () => {
     }, 2000);
   };
 
+  const validateForm = () => {
+    const { email, password, firstName, lastName, collaborator } = formData;
+    if (password !== formData.passwordConfirm) {
+      setFormData({ ...formData, error: "Las contraseñas no coinciden" });
+      clearError();
+      return false;
+    }
+
+    if (!email || !password || !firstName || !lastName || !collaborator) {
+      setFormData({ ...formData, error: "Todos los campos son obligatorios" });
+      clearError();
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
-    console.log("submit");
     e.preventDefault();
 
-    const { email, password } = formData;
+    if (!validateForm()) return;
+
+    const { email, password, firstName, lastName, collaborator } = formData;
     setFormData({ ...formData, loading: true });
 
     try {
-      const user = await loginRequest(email, password);
+      const user = await register({
+        email,
+        password,
+        firstName,
+        lastName,
+        collaborator,
+      });
       setFormData({ ...formData, loading: false });
-      login(user.data);
+      if (user) navigate("/auth/login");
     } catch (error) {
       setFormData({
         ...formData,
@@ -59,8 +83,8 @@ export const RegisterForm = () => {
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="firstName"
+                value={formData.firstName}
                 onChange={handleChange}
                 className="form-control w-full border-none outline-none"
                 placeholder="Correo electronico"
@@ -72,8 +96,8 @@ export const RegisterForm = () => {
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
                 type="text"
-                name="lastname"
-                value={formData.lastname}
+                name="lastName"
+                value={formData.lastName}
                 onChange={handleChange}
                 className="form-control w-full border-none outline-none"
                 placeholder="Correo electronico"
@@ -172,6 +196,22 @@ export const RegisterForm = () => {
                     }
                   />
                 )}
+              </div>
+            </div>
+            <div>
+              <label className="text-rp-gray text-sm mt-3">
+                Deseas ser colaborador?
+              </label>
+              <div className="border rounded-md px-3 py-1 mt-1">
+                <select
+                  name="collaborator"
+                  value={formData.collaborator}
+                  onChange={handleChange}
+                  className="form-control w-full border-none outline-none"
+                >
+                  <option value="yes">Si</option>
+                  <option value="no">No</option>
+                </select>
               </div>
             </div>
           </div>
