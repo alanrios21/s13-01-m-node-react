@@ -13,6 +13,7 @@ import close1 from "../../assets/close1.png";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,104 +54,124 @@ const Navbar = () => {
   // }, []);
 
   return (
-    <div className="">
-      <div className="  left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
-        <div className="flex justify-between items-center px-4">
-          <div className="flex items-center">
-            {/* {isLargeScreen ? null : ( */}
-            <img
-              src={menuOpen ? close1 : menu1}
-              alt={menuOpen ? "Close" : "Menu"}
-              className="cursor-pointer mr-4"
-              onClick={toggleMenu}
-            />
-            {/* )} */}
-            <img src={logo} alt="Logo" className={`h-8 ml-[190px] : ''}`} />
+    <div className="fixed w-full">
+      <nav className="relative">
+        <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
+          <div className="flex justify-between items-center px-4">
+            <div className="flex  items-center">
+              {/* {isLargeScreen ? null : ( */}
+              <img
+                src={menuOpen ? close1 : menu1}
+                alt={menuOpen ? "Close" : "Menu"}
+                className="cursor-pointer mr-4 w-6"
+                onClick={toggleMenu}
+              />
+              {/* )} */}
+              <img src={logo} alt="Logo" className={`h-8 w-36`} />
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className={`absolute left-0 top-12 bg-[#2B1A4E] py-2 w-[200px] ${
-          menuOpen ? "block" : "hidden"
-        } `}
-      >
-        <ul className="flex flex-col p-4">
-          <li className="py-2">
-            <Link to="/" className="text-white" onClick={closeMenu}>
-              <img
-                src={inicio}
-                alt="Inicio"
-                className="inline-block w-6 mr-2"
-              />
-              Inicio
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link to="/profile/fill" className="text-white" onClick={closeMenu}>
-              <img
-                src={perfil}
-                alt="Perfil"
-                className="inline-block w-6 mr-2"
-              />
-              Perfil
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link to="/explorar" className="text-white" onClick={closeMenu}>
-              <img
-                src={explorar}
-                alt="Videos"
-                className="inline-block w-6 mr-2"
-              />
-              Explorar
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link
-              to="/Crowdfounding"
-              className="text-white"
-              onClick={closeMenu}
-            >
-              <img src={crowd} alt="crowd" className="inline-block w-6 mr-2" />
-              Crowdfounding
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link
-              to="/Configuracion"
-              className="text-white"
-              onClick={closeMenu}
-            >
-              <img
-                src={settings}
-                alt="settings"
-                className="inline-block w-6 mr-2"
-              />
-              Configuración
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link to="/support" className="text-white" onClick={closeMenu}>
-              <img
-                src={support}
-                alt="support"
-                className="inline-block w-6 mr-2"
-              />
-              Soporte
-            </Link>
-          </li>
-          <li className="py-2 mt-36">
-            <button
-              className={"text-[red] " + "outline-none border-none"}
-              onClick={handleAuthMenu}
-            >
-              <img src={exit1} alt="exit" className="inline-block w-6 mr-2" />
-              {user ? "Cerrar " : "Iniciar "} sesión
-            </button>
-          </li>
-        </ul>
-      </div>
-      <Outlet />
+        <div className="flex relative">
+          <div
+            className={`h-screen bg-[#2B1A4E] menu-nav ${
+              menuOpen ? "show" : "hide"
+            } `}
+          >
+            <ul className="flex flex-col p-3 h-screen relative">
+              <li className="py-2">
+                <Link to="/" className="text-white" onClick={closeMenu}>
+                  <img
+                    src={inicio}
+                    alt="Inicio"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p>Inicio</p>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link
+                  to="/profile/fill"
+                  className="text-white"
+                  onClick={closeMenu}
+                >
+                  <img
+                    src={perfil}
+                    alt="Perfil"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p> Perfil</p>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link to="/explorar" className="text-white" onClick={closeMenu}>
+                  <img
+                    src={explorar}
+                    alt="Videos"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p>Explorar</p>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link
+                  to="/Crowdfounding"
+                  className="text-white"
+                  onClick={closeMenu}
+                >
+                  <img
+                    src={crowd}
+                    alt="crowd"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p>Crowdfounding</p>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link
+                  to="/Configuracion"
+                  className="text-white"
+                  onClick={closeMenu}
+                >
+                  <img
+                    src={settings}
+                    alt="settings"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p>Configuración</p>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link to="/support" className="text-white" onClick={closeMenu}>
+                  <img
+                    src={support}
+                    alt="support"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p>Soporte</p>
+                </Link>
+              </li>
+              <li className="py-2 absolute bottom-12">
+                <button
+                  className={"text-[red] " + "outline-none border-none"}
+                  onClick={handleAuthMenu}
+                >
+                  <img
+                    src={exit1}
+                    alt="exit"
+                    className="inline-block w-6 mr-2"
+                  />
+                  <p> {user ? "Cerrar " : "Iniciar "} sesión</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <main className="grid w-full overflow-scroll">
+            <section className="w-3/4 m-auto">
+              <Outlet />
+            </section>
+          </main>
+        </div>
+      </nav>
     </div>
   );
 };
