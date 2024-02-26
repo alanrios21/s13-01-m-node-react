@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily:{
+        roboto:["Roboto"]
+      },
+      
       backgroundColor: {
         primary: "#2B1A4E",
         secondary: "#9F1B64",
