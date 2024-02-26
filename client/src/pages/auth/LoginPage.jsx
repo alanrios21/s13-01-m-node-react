@@ -4,7 +4,11 @@ import "./styles.css";
 export const LoginPage = () => {
   return (
     <>
-      <LoginForm />
+      <main className="w-full h-screen bg-primary grid place-items-center">
+        <section className="lg:h-[75vh]">
+          <LoginForm />
+        </section>
+      </main>
     </>
   );
 };

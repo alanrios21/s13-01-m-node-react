@@ -1,11 +1,12 @@
 import "./App.css";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
-import { ProfileFill } from "./pages/profile/ProfileFill"
+import { ProfileFill } from "./pages/profile/ProfileFill";
+import ErrorPage from "./error-page";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import MyMusic from "./pages/Music/MyMusic";
-import Videos from './pages/Videos/Videos';
+import Videos from "./pages/Videos/Videos";
 import TuVideo from "./pages/TuVideo/TuVideo";
 import Pay from "./pages/Pay/Pay";
 import NotPay from "./pages/Pay/NotPay";
@@ -19,22 +20,28 @@ const stripePromise = loadStripe(
 function App() {
   return (
     <>
-        <Navbar />
-        <Routes>
-        <Route path="/videos" element={<Videos />} />
-        <Route path="/music" element={<MyMusic />} />
-        <Route path="/my-video" element={<TuVideo />} />
-        <Route path="/pay" element={ <Elements stripe={stripePromise}><Pay /> </Elements>} />
-        <Route path="/NotPay" element={<NotPay />} />
-        <Route path="/crowdfounding" element={<PaymentMehod />} />
-          <Route path="/auth">
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
+
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Navbar />} errorElement={<ErrorPage />}>
+          <Route errorElement={<ErrorPage />}>
+            <Route index element={<MyMusic />} />
+            <Route path="videos" element={<Videos />} />
+            <Route path="music" element={<MyMusic />} />
+            <Route path="my-video" element={<TuVideo />} />
+            <Route path="/pay" element={ <Elements stripe={stripePromise}><Pay /> </Elements>} />
+            <Route path="/NotPay" element={<NotPay />} />
+            <Route path="/crowdfounding" element={<PaymentMehod />} />
+            <Route path="auth">
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
+            </Route>
+            <Route path="profile">
+              <Route path="fill" element={<ProfileFill />} />
+            </Route>
           </Route>
-          <Route path="/profile">
-            <Route path="fill" element={<ProfileFill />} />
-          </Route>
-        </Routes>
+        </Route>
+      </Routes>
     </>
   );
 }

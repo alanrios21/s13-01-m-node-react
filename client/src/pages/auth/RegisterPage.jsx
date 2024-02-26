@@ -3,8 +3,10 @@ import "./styles.css";
 
 export const RegisterPage = () => {
   return (
-    <>
-      <RegisterForm />
-    </>
+    <main className="w-full min-h-screen bg-primary grid place-items-center">
+      <section className="lg:h-[75vh]">
+        <RegisterForm />
+      </section>
+    </main>
   );
 };
