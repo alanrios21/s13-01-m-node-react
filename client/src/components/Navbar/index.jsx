@@ -165,7 +165,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <main className="grid w-full overflow-scroll">
+          <main className="grid w-full h-screen overflow-y-scroll">
             <section className="w-3/4 m-auto">
               <Outlet />
             </section>
