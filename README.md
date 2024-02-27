@@ -6,6 +6,6 @@
   <h3 align="center"> Welcome to ROUNDPEOPLE </h3>
 </div>
 
-# DEPLOYS
+## DEPLOYS
 
 frontend : https://roundpeople.netlify.app/
