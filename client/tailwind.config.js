@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        roboto:["Roboto"]
+        roboto:["Roboto"],
+        lato:["Lato"]
       },
       
       backgroundColor: {
@@ -27,6 +28,9 @@ export default {
         "rp-success": "#68EC52",
       },
     },
+    screens: {
+        'sm': {'min': '475px', 'max': '766px'},
+    }
   },
   plugins: [],
 };
