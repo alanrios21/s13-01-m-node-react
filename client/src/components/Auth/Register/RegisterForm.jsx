@@ -10,7 +10,7 @@ export const RegisterForm = () => {
     lastName: "",
     email: "",
     password: "",
-    collaborator: "",
+    collaborator: "yes",
     passwordConfirm: "",
     error: "",
     loading: false,

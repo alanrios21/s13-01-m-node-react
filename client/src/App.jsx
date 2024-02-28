@@ -20,7 +20,6 @@ const stripePromise = loadStripe(
 function App() {
   return (
     <>
-
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Navbar />} errorElement={<ErrorPage />}>
@@ -29,17 +28,24 @@ function App() {
             <Route path="videos" element={<Videos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
-            <Route path="/pay" element={ <Elements stripe={stripePromise}><Pay /> </Elements>} />
+            <Route
+              path="/pay"
+              element={
+                <Elements stripe={stripePromise}>
+                  <Pay />{" "}
+                </Elements>
+              }
+            />
             <Route path="/NotPay" element={<NotPay />} />
             <Route path="/crowdfounding" element={<PaymentMehod />} />
-            <Route path="auth">
-              <Route path="login" element={<LoginPage />} />
-              <Route path="register" element={<RegisterPage />} />
-            </Route>
             <Route path="profile">
               <Route path="fill" element={<ProfileFill />} />
             </Route>
           </Route>
+        </Route>
+        <Route path="/auth">
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
         </Route>
       </Routes>
     </>
