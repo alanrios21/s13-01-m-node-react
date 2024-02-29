@@ -145,7 +145,7 @@ export const Profile = () => {
           </p>
           {isMySelf && <ProfileNetworksForm />}
 
-          <div className="flex justify-center items-center pt-4 mt-10">
+          <div className="flex justify-center items-center pt-4 mt-10  w-80 m-auto md:w-full">
             {isMySelf && (
               <button className="bg-[#e4e4e4] p-2 w-full md:w-1/3 rounded-lg text-slate-50">
                 Guardar cambios
@@ -173,7 +173,7 @@ export const Profile = () => {
             <img className="inline" src={boton} alt="icono musical" /> Comparte
             fotos de tu día a día.
           </p>
-          <div className="flex justify-center items-center mt-10 pb-10">
+          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
             {isMySelf && (
               <button className="bg-[#e4e4e4] p-2 w-full md:w-1/3 rounded-lg text-slate-50">
                 Guardar cambios
