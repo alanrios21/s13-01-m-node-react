@@ -12,14 +12,17 @@ import exit1 from "../../assets/exit1.png";
 import close1 from "../../assets/close1.png";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../api/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { logout: logoutUser, user } = useAuth();
   const navigate = useNavigate();
-  // const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
+  const params = useParams();
+  const [isMySelf, setIsMySelf] = useState(user?.user?.id === params.id);
+
+  console.log(params.id, user?.user?.id, isMySelf);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -90,7 +93,7 @@ const Navbar = () => {
               </li>
               <li className="py-2">
                 <Link
-                  to="/profile/fill"
+                  to={"/profile/" + user?.user?.id}
                   className="text-white"
                   onClick={closeMenu}
                 >

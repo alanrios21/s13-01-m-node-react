@@ -38,9 +38,7 @@ function App() {
             />
             <Route path="/NotPay" element={<NotPay />} />
             <Route path="/crowdfounding" element={<PaymentMehod />} />
-            <Route path="profile">
-              <Route path="fill" element={<ProfileFill />} />
-            </Route>
+            <Route path="profile/:id" element={<ProfileFill />}></Route>
           </Route>
         </Route>
         <Route path="/auth">
