@@ -20,8 +20,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { logout: logoutUser, user } = useAuth();
   const navigate = useNavigate();
-  
-
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -42,8 +40,6 @@ const Navbar = () => {
     await logout();
     logoutUser();
   };
-
-
 
   return (
     <div className="fixed w-full">
@@ -81,7 +77,7 @@ const Navbar = () => {
               </li>
               <li className="py-2">
                 <Link
-                  to="/profile/fill"
+                  to={"/profile/" + user?.user?.id}
                   className="text-white"
                   onClick={closeMenu}
                 >
