@@ -8,7 +8,7 @@ const PayForm = () => {
   const [donationAmount, setDonationAmount] = useState(""); // Estado para almacenar el monto de la donación
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate(); // Utilizamos useNavigate para la navegación
+  const navigate = useNavigate(); 
   const [cancelMessage, setCancelMessage] = useState("");
   const [processingMessage, setProcessingMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
@@ -54,7 +54,7 @@ const PayForm = () => {
 
     // Navegar a una nueva ruta después de procesar el pago
     setTimeout(() => {
-      navigate("/inicio");
+      navigate("/");
     }, 2000);
   };
 
@@ -67,7 +67,7 @@ const PayForm = () => {
         <h2 className="text-xl font-semibold text-center mb-8">
           INGRESA LOS DATOS DE TU TARJETA
         </h2>
-        <CardElement className="p-3 border border-gray-300 rounded mb-8" />
+        <CardElement className="p-3 border border-gray-300 rounded mb-8 mt-[80px]" />
         <div className="flex items-center mb-4 p-2 justify-center">
           {/* <h1 className="mr-4 text-center">Ingresa el valor a donar</h1> */}
           <div className="relative">
