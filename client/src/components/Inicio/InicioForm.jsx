@@ -21,8 +21,8 @@ const InicioForm = () => {
      </div>
       <MusicaMas />
       <div className="flex justify-between items-center">
-       <h1 className="text-xl mt-4 mb-1">En busca de Colaboraciones</h1>
-       <Link to="/videos" className="text-[#9F1B64] underline">Ver más</Link>
+       <h1 className="text-xl mt-4 mb-1">En busca de Colaboraciones </h1>
+       <Link to="/" className="text-[#9F1B64] underline">Ver más</Link>
      </div>
      <Colaboradores />
      <div className="items-center">
