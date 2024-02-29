@@ -1,5 +1,5 @@
 import { LoginForm } from "../../components/Auth/Login/LoginForm";
-import { Header } from "../../components/Header/Header";
+// import { Header } from "../../components/Header/Header";
 import logoSingle from "../../assets/logo-single.png";
 import "./styles.css";
 
@@ -7,7 +7,7 @@ export const LoginPage = () => {
   return (
     <>
       <main className="p-4 bg-primary h-screen ">
-        <Header />
+        {/* <Header /> */}
         {/* Columns Container */}
         <div className="sm:block flex justify-center ">
           {/* left column container */}

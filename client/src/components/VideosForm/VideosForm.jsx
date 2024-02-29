@@ -23,7 +23,7 @@ const VideosForm = () => {
       const formData = new FormData();
       formData.append("video", selectedFile);
 
-      const response = await httpInstance.post("/multimedia/upload/video", formData, {
+      const response = await httpInstance.post("/upload/video", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
