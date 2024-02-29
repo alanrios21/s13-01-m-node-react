@@ -14,6 +14,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
+import { httpInstance } from "../../api/httpInstance";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,25 +41,12 @@ const Navbar = () => {
     logoutUser();
   };
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsLargeScreen(window.innerWidth > 1024);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
-
   return (
     <div className="fixed w-full">
       <nav className="relative">
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
           <div className="flex justify-between items-center px-4">
             <div className="flex  items-center">
-              {/* {isLargeScreen ? null : ( */}
               <img
                 src={menuOpen ? close1 : menu1}
                 alt={menuOpen ? "Close" : "Menu"}
