@@ -254,3 +254,86 @@ Regístrate hoy y comienza a construir tu carrera.
 </dl>
 <br>
 
+## Teconologías
+
+<table>
+  <thead>
+    <tr>
+      <th>Front-End</th>
+      <th>UX/UI</th>
+      <th>Back-End</th>
+      <th>Testing &amp; QA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img alt="javascript" src="https://img.shields.io/badge/Javascript-%23F7DF1E?logo=javascript&logoColor=white">
+      </td>
+      <td>
+        <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
+      </td>
+      <td>
+        <img alt="javascript" src="https://img.shields.io/badge/Javascript-%23F7DF1E?logo=javascript&logoColor=white">
+      </td>
+      <td>
+        <img alt="jira" src="https://img.shields.io/badge/Jira-%230052CC?logo=jira&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="react.js" src="https://img.shields.io/badge/React.js-%2361DAFB?logo=react&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+      <img alt="node.js" src="https://img.shields.io/badge/Node.js-%23339933?logo=node.js&logoColor=white">
+      </td>
+      <td>
+        <img alt="xray" src="https://img.shields.io/badge/XRay-%23D30707">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="typescript" src="https://img.shields.io/badge/TypeScript-%233178C6?logo=TypeScript&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="express.js" src="https://img.shields.io/badge/Express.js-%23000000?logo=Express&logoColor=white">
+      </td>
+      <td>
+        <img alt="google-sheets" src="https://img.shields.io/badge/Google%20Sheets-%2334A853?logo=Google%20sheets&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="mongodb" src="https://img.shields.io/badge/MongoDB-%2347A248?logo=mongodb&logoColor=white">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="Redux" src="https://img.shields.io/badge/Redux-%235A29E4?logo=Redux&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="mongoose" src="https://img.shields.io/badge/Mongoose-%23880000?logo=Mongoose">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="Prisma" src="https://img.shields.io/badge/Prisma-757575?logo=Prisma&logoColor=white">
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<br>
