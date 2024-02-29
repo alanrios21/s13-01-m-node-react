@@ -20,17 +20,23 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
     <b>ROUNDPEOPLE</b>
      La plataforma que impulsa tu carrera musical.
     
-    No dejes que nada te detenga. En ROUNDPEOPLE, creemos en el talento sin fronteras. 
-    Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
+  No dejes que nada te detenga. En ROUNDPEOPLE, creemos en el talento sin fronteras. 
+  Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
 
 Aquí encontrarás:
 
 Un espacio para tu talento: Crea un perfil profesional que destaque tu experiencia y estilo.
+</dd>
+<dd>
 Oportunidades a tu alcance: Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
+  </dd>
+<dd>
 Financiamiento para tus sueños: Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
+  </dd>
+<dd>
 Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
 ROUNDPEOPLE: Tu camino hacia el éxito musical.
-
+</dd>
 Regístrate hoy y comienza a construir tu carrera.
   </dd>
 </dl>
@@ -72,12 +78,12 @@ Regístrate hoy y comienza a construir tu carrera.
             <tr>
               <td>Mayder Cortés</td>
               <td>
-                <a href="github">
+                <a href="https://github.com/MayderC">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href=" https://www.linkedin.com/in/mayderc/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -85,12 +91,12 @@ Regístrate hoy y comienza a construir tu carrera.
             <tr>
               <td>Orlando Flores</td>
               <td>
-                <a href="https://github">
+                <a href="https://github.com/lalomax">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href=" https://www.linkedin.com/in/orlando-flores365/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -98,12 +104,12 @@ Regístrate hoy y comienza a construir tu carrera.
             <tr>
               <td>Andrés Mejía</td>
               <td>
-                <a href="github">
+                <a href="https://github.com/andrmepe">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
               <td>
-                <a href=".linkedin">
+                <a href="https://www.linkedin.com/in/andres-mejia-374483240">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -111,12 +117,12 @@ Regístrate hoy y comienza a construir tu carrera.
             <tr>
               <td>Alan Ríos</td>
               <td>
-                <a href="github">
+                <a href="https://github.com/alanrios21">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href="https://www.linkedin.com/in/alan-rios/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -142,7 +148,7 @@ Regístrate hoy y comienza a construir tu carrera.
             <tr>
               <td>Delwin Hernández</td>
               <td>
-                <a href="github">
+                <a href="https://github.com/Delwin183">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
@@ -178,7 +184,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href="https://www.linkedin.com/in/sabrina-fernandez-uxdesigner/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                </a>
               </td>
@@ -191,7 +197,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href="https://www.linkedin.com/in/analiaportillo/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
