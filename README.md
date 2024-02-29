@@ -7,9 +7,11 @@
 </div>
 
 
-## DEPLOYS
+## Deploys
 
 frontend : https://roundpeople.netlify.app/
+backend: https://roundpeopleapi.up.railway.app
+pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
 
 ## Descripción del proyecto:
 
