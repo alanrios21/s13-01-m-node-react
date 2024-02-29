@@ -15,6 +15,7 @@ export default {
         "rp-black": "#1B1B1B",
         "rp-dark-gray": "#282828",
         "rp-gray": "#484848",
+        "rp-white-gray": "#E4E4E4",
       },
 
       textColor: {
@@ -28,9 +29,7 @@ export default {
         "rp-success": "#68EC52",
       },
     },
-    screens: {
-        'sm': {'min': '475px', 'max': '766px'},
-    }
+    
   },
   plugins: [],
 };
