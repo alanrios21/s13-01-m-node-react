@@ -6,6 +6,11 @@
   <h3 align="center">Comparte tu pasión por la música</h3>
 </div>
 
+
+## DEPLOYS
+
+frontend : https://roundpeople.netlify.app/
+
 ## Descripción del proyecto:
 
 <dl>
@@ -240,16 +245,4 @@ Regístrate hoy y comienza a construir tu carrera.
   </dd>
 </dl>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
 

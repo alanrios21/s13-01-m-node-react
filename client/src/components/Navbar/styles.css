@@ -1,0 +1,48 @@
+.menu-nav {
+  z-index: 9;
+}
+
+.main-navbar {
+  height: calc(100vh - 45px);
+}
+
+.menu-nav ul {
+  list-style: none;
+}
+
+.menu-nav ul li a,
+.menu-nav ul li button {
+  padding: 10px;
+  text-align: left;
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+}
+
+.hide ul,
+.hide ul li a {
+  width: 60px;
+}
+
+.hide ul li p {
+  display: none;
+}
+
+@media (max-width: 568px) {
+  .menu-nav {
+    position: absolute;
+  }
+  .hide ul,
+  .hide ul li a {
+    left: 100%;
+  }
+
+  .hide {
+    left: 100%;
+  }
+
+  .show ul,
+  .show ul li a {
+    left: 0;
+  }
+}

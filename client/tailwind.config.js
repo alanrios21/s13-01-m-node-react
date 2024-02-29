@@ -3,6 +3,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily:{
+        roboto:["Roboto"],
+        lato:["Lato"]
+      },
+      
       backgroundColor: {
         primary: "#2B1A4E",
         secondary: "#9F1B64",
@@ -23,6 +28,9 @@ export default {
         "rp-success": "#68EC52",
       },
     },
+    screens: {
+        'sm': {'min': '475px', 'max': '766px'},
+    }
   },
   plugins: [],
 };
