@@ -86,6 +86,7 @@ export const Profile = () => {
             rows="5"
             name="about"
             value={formData.about}
+            disabled={!isMySelf}
             onChange={handleChange}
           />
           <p className="text-sm mt-8 md:text-base">
@@ -97,6 +98,7 @@ export const Profile = () => {
               type="text"
               name="musicalGenre"
               id=""
+              disabled={!isMySelf}
               placeholder="Ej.: Rock, Pop, Folk"
               value={formData.musicalGenre}
               onChange={(e) => handleChange(e)}
@@ -117,6 +119,7 @@ export const Profile = () => {
               type="text"
               name="instruments"
               id=""
+              disabled={!isMySelf}
               placeholder="Ej.: Batería, guitarra, bajo"
               value={formData.instruments}
               onChange={(e) => handleChange(e)}
@@ -135,6 +138,7 @@ export const Profile = () => {
               type="text"
               name=""
               id=""
+              disabled={!isMySelf}
               placeholder="Ej.: Batería, guitarra, bajo"
               value={formData.musicalInfluence}
             />
