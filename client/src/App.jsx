@@ -13,6 +13,7 @@ import NotPay from "./pages/Pay/NotPay";
 import PaymentMehod from "./pages/Pay/PaymentMehod";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import Inicio from "./pages/Inicio/Inicio";
 const stripePromise = loadStripe(
   "pk_test_51O4gkgD3YXfw7A9OCrcmMR7KH5RB0lHjigzLXqtap7qigk2Le0kh9Q0OGTjSaYpdSTRTcJS1yIFA9jIVML956B9O00NqWfPeG6"
 );
@@ -24,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />} errorElement={<ErrorPage />}>
           <Route errorElement={<ErrorPage />}>
-            <Route index element={<MyMusic />} />
+            <Route index element={<Inicio />} />
             <Route path="videos" element={<Videos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
@@ -38,9 +39,7 @@ function App() {
             />
             <Route path="/NotPay" element={<NotPay />} />
             <Route path="/crowdfounding" element={<PaymentMehod />} />
-            <Route path="profile">
-              <Route path="fill" element={<ProfileFill />} />
-            </Route>
+            <Route path="profile/:id" element={<ProfileFill />}></Route>
           </Route>
         </Route>
         <Route path="/auth">
