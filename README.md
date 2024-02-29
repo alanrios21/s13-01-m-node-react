@@ -11,11 +11,13 @@
 <dl>
   <dd>
     <b>ROUNDPEOPLE</b>
-     La plataforma que impulsa tu carrera musical 
+     La plataforma que impulsa tu carrera musical.
+    
     No dejes que nada te detenga. En ROUNDPEOPLE, creemos en el talento sin fronteras. 
     Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
 
 Aquí encontrarás:
+
 Un espacio para tu talento: Crea un perfil profesional que destaque tu experiencia y estilo.
 Oportunidades a tu alcance: Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
 Financiamiento para tus sueños: Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
@@ -27,7 +29,7 @@ Regístrate hoy y comienza a construir tu carrera.
 </dl>
 <br/>
 
-##Funcionalidades
+## Funcionalidades
 
 <dl>
   <dd>
@@ -171,8 +173,10 @@ Regístrate hoy y comienza a construir tu carrera.
               <td>
                 <a href="linkedin">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
-                </a>
+               </a>
               </td>
+            </tr>
+            <tr>
             <td>Analía Portillo</td>
               <td>
                 <a href="github">
