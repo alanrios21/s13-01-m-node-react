@@ -12,17 +12,13 @@ import exit1 from "../../assets/exit1.png";
 import close1 from "../../assets/close1.png";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../api/auth";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { logout: logoutUser, user } = useAuth();
   const navigate = useNavigate();
-  const params = useParams();
-  const [isMySelf, setIsMySelf] = useState(user?.user?.id === params.id);
-
-  console.log(params.id, user?.user?.id, isMySelf);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
