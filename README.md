@@ -12,6 +12,7 @@
 frontend : https://roundpeople.netlify.app/
 backend: https://roundpeopleapi.up.railway.app
 pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
+<br/>
 
 ## Descripción del proyecto:
 
@@ -20,24 +21,27 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
     <b>ROUNDPEOPLE</b>
      La plataforma que impulsa tu carrera musical.
     
-  No dejes que nada te detenga. En ROUNDPEOPLE, creemos en el talento sin fronteras. 
+  No dejes que nada te detenga.
+  En ROUNDPEOPLE, creemos en el talento sin fronteras. 
   Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
-
-Aquí encontrarás:
-
-Un espacio para tu talento: Crea un perfil profesional que destaque tu experiencia y estilo.
-</dd>
-<dd>
-Oportunidades a tu alcance: Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
   </dd>
-<dd>
-Financiamiento para tus sueños: Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
+  <dd>
+  Aquí encontrarás:
+   </dd>
+  <dd>
+  Un espacio para tu talento: Crea un perfil profesional que destaque tu experiencia y estilo.
   </dd>
-<dd>
-Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
-ROUNDPEOPLE: Tu camino hacia el éxito musical.
-</dd>
-Regístrate hoy y comienza a construir tu carrera.
+  <dd>
+  Oportunidades a tu alcance: Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
+  </dd>
+  <dd>
+  Financiamiento para tus sueños: Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
+  </dd>
+  <dd>
+  Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
+  ROUNDPEOPLE: Tu camino hacia el éxito musical.
+  </dd>
+  Regístrate hoy y comienza a construir tu carrera.
   </dd>
 </dl>
 <br/>
@@ -83,7 +87,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href=" https://www.linkedin.com/in/mayderc/">
+                <a href="https://www.linkedin.com/in/mayderc/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -96,7 +100,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href=" https://www.linkedin.com/in/orlando-flores365/">
+                <a href="https://www.linkedin.com/in/orlando-flores365/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -109,7 +113,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="https://www.linkedin.com/in/andres-mejia-374483240">
+                <a href="https://www.linkedin.com/in/andres-mejia-374483240/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -122,7 +126,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="https://www.linkedin.com/in/alan-rios/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                <a href="https://www.linkedin.com/in/alan-rios/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -153,7 +157,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="linkedin">
+                <a href=" https://www.linkedin.com/in/delwin-hernandez/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -228,7 +232,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="https://www.linkedin.com/in/patricia-caicedo">
+                <a href="https://www.linkedin.com/in/patricia-caicedo/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
@@ -241,7 +245,7 @@ Regístrate hoy y comienza a construir tu carrera.
                 </a>
               </td>
               <td>
-                <a href="link linkedin">
+                <a href="https://www.linkedin.com/in/handrych-m%C3%A1rquez/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
