@@ -79,3 +79,8 @@ export const instruments = [
   "xilofono",
   "guiro",
 ];
+
+export const MULTIMEDIA_TYPE = {
+  IMAGE: "image",
+  VIDEO: "video",
+};
