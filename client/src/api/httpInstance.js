@@ -5,15 +5,15 @@ const httpInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials:true,
+  withCredentials: true,
 });
 
 httpInstance.interceptors.request.use(
   (config) => {
     const user = localStorage.getItem("user");
     if (user) {
-      const { token } = JSON.parse(user);
-      config.headers.Authorization = `Bearer ${token}`;
+      const { userSessionID } = JSON.parse(user);
+      config.headers["X-User-ID"] = userSessionID;
     }
     return config;
   },
