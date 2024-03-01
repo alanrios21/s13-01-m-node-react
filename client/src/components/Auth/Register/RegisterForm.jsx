@@ -17,9 +17,9 @@ export const RegisterForm = () => {
     loading: false,
     showPassword: false,
   });
-  
-  const [bgColorActive, setbgColorActive] = useState(false)
-  
+
+  const [bgColorActive, setbgColorActive] = useState(false);
+
   const clearError = () => {
     setTimeout(() => {
       setFormData({ ...formData, error: "" });
@@ -72,7 +72,7 @@ export const RegisterForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setbgColorActive(bgColorActive => true)
+    setbgColorActive((bgColorActive) => true);
   };
 
   return (
@@ -222,13 +222,17 @@ export const RegisterForm = () => {
           <div className="h-5 text-rp-error">
             {formData.error && <div className="">{formData.error}</div>}
           </div>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className={`btn ${bgColorActive ? `bg-secondary` : `bg-rp-white-gray`} text-white w-full mt-3 rounded-lg py-1.5 font-semibold outline-none`}
-          >
-            {formData.loading ? "Loading..." : "Registrarse"}
-          </button>
+          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto w-full md:w-3/4">
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className={`btn ${
+                bgColorActive ? `bg-secondary` : `bg-rp-white-gray`
+              } text-white w-full mt-3 rounded-lg py-1.5 font-semibold outline-none`}
+            >
+              {formData.loading ? "Loading..." : "Registrarse"}
+            </button>
+          </div>
           <div className="w-full relative grid place-items-center h-7 mt-4">
             <div className="h-[0.5px] w-full bg-gray-500"></div>
             <p className="text-sm text-rp-gray px-1 top-[2px] bg-white absolute">
@@ -246,7 +250,9 @@ export const RegisterForm = () => {
             </div>
             <p className="text-sm text-rp-gray px-1 top-[2px] bg-white text-center py-4">
               ¿Ya tienes un usuario?{" "}
-              <Link className="text-secondary underline" to={"/auth/login"}>Inicia sesión</Link>
+              <Link className="text-secondary underline" to={"/auth/login"}>
+                Inicia sesión
+              </Link>
               {/* <span className="text-secondary underline"></span> */}
             </p>
           </div>

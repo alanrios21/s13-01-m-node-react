@@ -133,7 +133,7 @@ export const LoginForm = () => {
           <div className="h-5 text-rp-error">
             {formData.error && <div className="">{formData.error}</div>}
           </div>
-          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
+          <div className="flex justify-center items-center mt-10 pb-10 m-auto w-full md:w-3/4">
             <button
               type="submit"
               onClick={handleSubmit}
