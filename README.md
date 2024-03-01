@@ -12,16 +12,19 @@
 frontend : https://roundpeople.netlify.app/
 backend: https://roundpeopleapi.up.railway.app
 pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
-<br/>
 
 ## Descripción del proyecto:
 
 <dl>
   <dd>
     <b>ROUNDPEOPLE</b>
-     La plataforma que impulsa tu carrera musical.
-    
+</dd>
+    La plataforma que impulsa tu carrera musical.
+    </dd>
+  <dd>
   No dejes que nada te detenga.
+    </dd>
+    <dd>
   En ROUNDPEOPLE, creemos en el talento sin fronteras. 
   Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
   </dd>
@@ -157,7 +160,7 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
                 </a>
               </td>
               <td>
-                <a href=" https://www.linkedin.com/in/delwin-hernandez/">
+                <a href="https://www.linkedin.com/in/delwin-hernandez/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
