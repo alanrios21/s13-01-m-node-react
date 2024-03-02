@@ -31,7 +31,7 @@ export const Profile = () => {
   const [formData, setFormData] = useState({
     profileImage: tecladista,
     about: "",
-    musicalGenre: "",
+    musical_genre: "",
     instruments: "",
     musicalInfluence: "",
   });
@@ -44,7 +44,7 @@ export const Profile = () => {
       setFormData({
         profileImage: data.profileImage,
         about: data.about,
-        musicalGenre: data.musical_genre,
+        musical_genre: data.musical_genre,
         instruments: data.instruments,
         musicalInfluence: data.musical_influence,
       });
@@ -58,8 +58,18 @@ export const Profile = () => {
   const submitForm = async () => {
     try {
       setBtnText({ ...btnText, btn1: "Guardando..." });
-      const response = await updateProfile(user.id, formData);
-      setBtnText({ ...btnText, btn1: "Guardar cambios" });
+
+      const { email, id, images, videos, music, posts, donations, ...rest } =
+        user;
+
+      const response = await updateProfile(user.id, { ...rest, ...formData });
+
+      setBtnText({ ...btnText, btn1: "Actulizado" });
+
+      setTimeout(() => {
+        setBtnText({ ...btnText, btn1: "Guardar cambios" });
+      }, 2000);
+
       setUser(response.data);
     } catch (error) {
       setBtnText({ ...btnText, btn1: "Guardar cambios" });
@@ -106,11 +116,11 @@ export const Profile = () => {
             <select
               className="block mt-3  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
               type="text"
-              name="musicalGenre"
+              name="musical_genre"
               id=""
               disabled={!isMySelf}
               placeholder="Ej.: Rock, Pop, Folk"
-              value={formData.musicalGenre}
+              value={formData.musical_genre}
               onChange={(e) => handleChange(e)}
             >
               {musical_genre.map((genre) => (
@@ -157,7 +167,10 @@ export const Profile = () => {
 
           <div className="flex justify-center items-center pt-4 mt-10  w-80 m-auto md:w-full">
             {isMySelf && (
-              <button className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50">
+              <button
+                className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
+                onClick={submitForm}
+              >
                 {btnText.btn1}
               </button>
             )}
