@@ -1,13 +1,16 @@
 import tecladista from "../../assets/tecladista 2.png";
-import boton from "../../assets/Add multimedia.png";
-import { AuthContext } from "../../context/AuthContext";
-import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { ProfileNetworksForm } from "./ProfileNetworksForm";
-import { musical_genre, instruments } from "../../utils/constants";
+import {
+  musical_genre,
+  instruments,
+  MULTIMEDIA_TYPE,
+} from "../../utils/constants";
 import { useAuth } from "../../hooks/useAuth";
-import { httpInstance } from "../../api/httpInstance";
 import { ShowProfileNetworks } from "./ShowProfileNetworks";
+import { ShowMultimedia } from "./ShowMultimedia";
+import { getProfile, updateProfile } from "../../api/profile";
 
 export const Profile = () => {
   const { user: authUser } = useAuth();
@@ -15,52 +18,69 @@ export const Profile = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const params = useParams();
   const [isMySelf, setIsMySelf] = useState(true);
+  const [btnText, setBtnText] = useState({
+    btn1: "Guardar cambios",
+    btn2: "Guardar cambios",
+  });
+
+  const [textError, setTextError] = useState({
+    error1: "",
+    error2: "",
+  });
 
   const [formData, setFormData] = useState({
     profileImage: tecladista,
     about: "",
-    musicalGenre: "",
+    musical_genre: "",
     instruments: "",
     musicalInfluence: "",
   });
 
   useEffect(() => {
     setIsMySelf(authUser?.user.id === params.id);
-    if (authUser?.user.id === params.id) {
-      setFormData({
-        profileImage: authUser.user.profileImage,
-        about: authUser.user.about,
-        musicalGenre: authUser.user.musical_genre,
-        instruments: authUser.user.instruments,
-        musicalInfluence: authUser.user.musical_influence,
-      });
-      return;
-    }
 
-    if (authUser?.user.id !== params.id) {
-      httpInstance.get(`/users/${params.id}`).then((res) => {
-        setUser(res.data);
-        const data = res.data;
-        setFormData({
-          profileImage: data.profileImage,
-          about: data.about,
-          musicalGenre: data.musical_genre,
-          instruments: data.instruments,
-          musicalInfluence: data.musical_influence,
-        });
+    getProfile(params.id).then((data) => {
+      setUser(data);
+      setFormData({
+        profileImage: data.profileImage,
+        about: data.about,
+        musical_genre: data.musical_genre,
+        instruments: data.instruments,
+        musicalInfluence: data.musical_influence,
       });
-    }
+    });
   }, [authUser, params.id]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const submitForm = async () => {
+    try {
+      setBtnText({ ...btnText, btn1: "Guardando..." });
+
+      const { email, id, images, videos, music, posts, donations, ...rest } =
+        user;
+
+      const response = await updateProfile(user.id, { ...rest, ...formData });
+
+      setBtnText({ ...btnText, btn1: "Actulizado" });
+
+      setTimeout(() => {
+        setBtnText({ ...btnText, btn1: "Guardar cambios" });
+      }, 2000);
+
+      setUser(response.data);
+    } catch (error) {
+      setBtnText({ ...btnText, btn1: "Guardar cambios" });
+    }
+  };
+
   return (
     <>
       <section className="lg:w-3/4 m-auto ">
         {/* Sección Tu perfil sobre ti */}
-        <div className="p-8">
+        <div className="p-8 overflow-x-hidden">
           {isMySelf ? (
             <>
               <h2 className="font-bold">Tu perfil</h2>
@@ -96,11 +116,11 @@ export const Profile = () => {
             <select
               className="block mt-3  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
               type="text"
-              name="musicalGenre"
+              name="musical_genre"
               id=""
               disabled={!isMySelf}
               placeholder="Ej.: Rock, Pop, Folk"
-              value={formData.musicalGenre}
+              value={formData.musical_genre}
               onChange={(e) => handleChange(e)}
             >
               {musical_genre.map((genre) => (
@@ -147,8 +167,11 @@ export const Profile = () => {
 
           <div className="flex justify-center items-center pt-4 mt-10  w-80 m-auto md:w-full">
             {isMySelf && (
-              <button className="bg-[#e4e4e4] p-2 w-full md:w-1/3 rounded-lg text-slate-50">
-                Guardar cambios
+              <button
+                className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
+                onClick={submitForm}
+              >
+                {btnText.btn1}
               </button>
             )}
           </div>
@@ -157,25 +180,38 @@ export const Profile = () => {
         {/* Sección Contenido Multimedia */}
 
         <div className="p-8">
-          <h2>Contenido Multimedia </h2>
-          <h2>Demos</h2>
-          <p className="text-sm md:text-base">
-            <img className="inline" src={boton} alt="icono musical" /> ¡Haz que
-            tu perfil cobre vida con tu mejor material!{" "}
-          </p>
-          <h2>Videos</h2>
-          <p className="text-sm md:text-base">
-            <img className="inline" src={boton} alt="icono musical" /> Añade
-            demos y que tu núsica inspire
-          </p>
-          <h2>Fotos</h2>
-          <p className="text-sm md:text-base">
-            <img className="inline" src={boton} alt="icono musical" /> Comparte
-            fotos de tu día a día.
-          </p>
+          <h2 className="font-semibold text-lg">Contenido Multimedia </h2>
+          {isMySelf && (
+            <h3>¡Haz que tu perfil cobre vida con tu mejor material!</h3>
+          )}
+
+          <div>
+            <ShowMultimedia
+              title={"Demos"}
+              type={MULTIMEDIA_TYPE.VIDEO}
+              items={user?.videos}
+            ></ShowMultimedia>
+          </div>
+
+          <div>
+            <ShowMultimedia
+              title={"Videos"}
+              type={MULTIMEDIA_TYPE.VIDEO}
+              items={user?.videos}
+            ></ShowMultimedia>
+          </div>
+
+          <div>
+            <ShowMultimedia
+              title={"Fotos"}
+              type={MULTIMEDIA_TYPE.IMAGE}
+              items={user?.images}
+            ></ShowMultimedia>
+          </div>
+
           <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
             {isMySelf && (
-              <button className="bg-[#e4e4e4] p-2 w-full md:w-1/3 rounded-lg text-slate-50">
+              <button className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50">
                 Guardar cambios
               </button>
             )}
