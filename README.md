@@ -19,7 +19,8 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
   <dd>
     <b>ROUNDPEOPLE</b>
 </dd>
-    La plataforma que impulsa tu carrera musical.
+    <dd>
+  La plataforma que impulsa tu carrera musical.
     </dd>
   <dd>
   No dejes que nada te detenga.
@@ -45,8 +46,12 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
   <dd>
   Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
     </dd>
+  <dd>
   <b>ROUNDPEOPLE: Tu camino hacia el éxito musical.</b>
-  <b> Regístrate hoy y comienza a construir tu carrera.</b>
+    </dd>
+  <dd>
+  <b>Regístrate hoy y comienza a construir tu carrera.</b>
+    </dd>
   </dd>
 </dl>
 <br/>
@@ -263,7 +268,7 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
 </dl>
 <br>
 
-## Teconologías
+## Tecnologías
 
 <table>
   <thead>
