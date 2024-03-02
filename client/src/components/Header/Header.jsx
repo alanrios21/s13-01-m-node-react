@@ -1,6 +1,6 @@
-// import logoSingle from "../../assets/logo-single.png";
+import logoSingle from "../../assets/logo-single.png";
 
-// import React from "react";
+import React from "react";
 
 export const Header = () => {
   return (
