@@ -3,7 +3,7 @@
   <a>
     <img src="https://github.com/No-Country/s13-01-m-node-react/blob/dinamic-profile-view/client/src/assets/logo-single.png" alt="LogotipoRoundPeople" width="50%">
   </a>
-  <h3 align="center">Comparte tu pasión por la música</h3>
+  <h2 align="center">Comparte tu pasión por la música</h2>
 </div>
 
 
@@ -44,9 +44,9 @@ pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
   </dd>
   <dd>
   Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
+    </dd>
   <b>ROUNDPEOPLE: Tu camino hacia el éxito musical.</b>
-  </dd>
-  Regístrate hoy y comienza a construir tu carrera.
+  <b> Regístrate hoy y comienza a construir tu carrera.</b>
   </dd>
 </dl>
 <br/>
