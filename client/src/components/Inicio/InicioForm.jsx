@@ -18,7 +18,7 @@ const InicioForm = () => {
       <div className="flex justify-between items-center">
         <h1 className="text-xl mt-4 mb-1">Ver mis videos</h1>
         <Link
-          to={`/videos/${user.user?.id}`}
+          to={`/videos/${user?.user?.id}`}
           className="text-[#9F1B64] underline"
         >
           Ver más
