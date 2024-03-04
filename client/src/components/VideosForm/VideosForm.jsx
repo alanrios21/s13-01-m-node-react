@@ -14,7 +14,7 @@ const VideosForm = () => {
   const params = useParams();
 
   const [isMySelf, setIsMySelf] = useState(
-    JSON.parse(localStorage.getItem("user")).user.id === params.id
+    JSON.parse(localStorage.getItem("user"))?.user?.id === params.id
   );
 
   const { handleFileChange, handleUpload } = useUploadFromProfile();
