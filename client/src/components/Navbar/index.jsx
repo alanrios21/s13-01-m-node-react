@@ -22,6 +22,7 @@ const Navbar = () => {
 
   const { ref } = useLoadingBar();
 
+  const { user: userHook } = useAuth(); // Nuevo por Andres para llamar al Usuario
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -50,6 +51,12 @@ const Navbar = () => {
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
           <div className="flex justify-between items-center px-4">
             <div className="flex  items-center">
+              {/* Nuevo por Andres para llamar al Usuario */}
+              {userHook && (
+                <div className="text-[#ECBA3B] mr-4">
+                  {userHook.firstName} {userHook.lastName}
+                </div>
+              )}
               <img
                 src={menuOpen ? close1 : menu1}
                 alt={menuOpen ? "Close" : "Menu"}
