@@ -16,6 +16,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import Inicio from "./pages/Inicio/Inicio";
 import Inicio2 from "./pages/Inicio/Inicio2";
 import Demos from "./pages/Demos/Demos";
+import Community from "./pages/Community/Community";
+
 const stripePromise = loadStripe(
   "pk_test_51O4gkgD3YXfw7A9OCrcmMR7KH5RB0lHjigzLXqtap7qigk2Le0kh9Q0OGTjSaYpdSTRTcJS1yIFA9jIVML956B9O00NqWfPeG6"
 );
@@ -32,6 +34,7 @@ function App() {
             <Route path="demos" element={<Demos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
+            <Route path="community" element={<Community />} />
             <Route
               path="/pay"
               element={
