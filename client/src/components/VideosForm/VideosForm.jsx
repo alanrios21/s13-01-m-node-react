@@ -1,40 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import VideosMulti from "./VideosMulti";
-import { uploadVideo } from "../../api/multimedia";
-import { useLoadingBar } from "./../../hooks/useLoadingBar";
 import imgUpload from "../../assets/cargaVideos.png";
+import { useParams } from "react-router-dom";
+import { useUploadFromProfile } from "../../hooks/useUploadMultimedia";
+import { MULTIMEDIA_TYPE } from "../../utils/constants";
+import { getProfile } from "../../api/profile";
 
 const VideosForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedVideos, setSelectedVideos] = useState([]);
+  const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const params = useParams();
 
-  const { ref, setProgress, clear } = useLoadingBar();
+  const [isMySelf, setIsMySelf] = useState(
+    JSON.parse(localStorage.getItem("user")).user.id === params.id
+  );
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+  const { handleFileChange, handleUpload } = useUploadFromProfile();
 
-  const handleUpload = async () => {
-    try {
-      if (!selectedFile) {
-        console.error("No file selected");
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append("video", selectedFile);
-
-      const response = uploadVideo(formData, (progress) => {
-        setProgress(progress);
-        if (progress === 100) clear();
-      });
-
-      console.log("File uploaded successfully:", response.data);
-    } catch (error) {
-      console.error("Error uploading file:", error);
-    }
-  };
+  useEffect(() => {
+    getProfile(params.id).then((data) => {
+      setVideos(data.videos);
+    });
+  }, []);
 
   const handleDeleteSelectedVideos = async () => {
     try {
@@ -55,6 +44,12 @@ const VideosForm = () => {
     }
   };
 
+  const doneCallback = (response) => {
+    if (response) {
+      setVideos([...videos, response]);
+    }
+  };
+
   return (
     <div className="ml-2 p-2 ">
       <h1 className="text-xl font-bold mt-2">Contenido multimedia</h1>
@@ -64,31 +59,38 @@ const VideosForm = () => {
         visualmente emocionante. Sigue compartiéndolos y lleva tu música a
         nuevos niveles de creatividad y expresión
       </p>
-      <VideosMulti />
+      <VideosMulti videos={videos} />
 
       <input
         id="file-upload"
         type="file"
-        onChange={handleFileChange}
+        onChange={(e) => handleFileChange(e, MULTIMEDIA_TYPE.VIDEO)}
         style={{ display: "none" }}
       />
-      <button
-        className="bg-[#2B1A4E] text-white rounded-md py-2 px-4 mt-2"
-        onClick={handleUpload}
-      >
-        Subir
-      </button>
-      <button
-        className="bg-red-500 text-white rounded-md py-2 px-4 mt-2 ml-2"
-        onClick={handleDeleteSelectedVideos}
-        disabled={selectedVideos.length === 0 || loading}
-      >
-        {loading ? "Eliminando..." : "Eliminar seleccionados"}
-      </button>
-
-      <label htmlFor="file-upload" className="">
-        <img src={imgUpload} alt="upload" className="w-6 h-6 inline-block" />
-      </label>
+      {isMySelf && (
+        <div>
+          <label htmlFor="file-upload" className="">
+            <img
+              src={imgUpload}
+              alt="upload"
+              className="w-20 h-20 inline-block"
+            />
+          </label>
+          <button
+            className="bg-[#2B1A4E] text-white rounded-md py-2 px-4 mt-2"
+            onClick={() => handleUpload(doneCallback)}
+          >
+            Subir
+          </button>
+          <button
+            className="bg-red-500 text-white rounded-md py-2 px-4 mt-2 ml-2"
+            onClick={handleDeleteSelectedVideos}
+            disabled={selectedVideos.length === 0 || loading}
+          >
+            {loading ? "Eliminando..." : "Eliminar seleccionados"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
