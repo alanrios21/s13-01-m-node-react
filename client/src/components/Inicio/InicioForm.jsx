@@ -17,7 +17,7 @@ const InicioForm = () => {
       <VideosVistos />
       <div className="flex justify-between items-center">
        <h2 className="text-xl mt-4 mb-1">La música más escuchada...</h2>
-       <Link to="/videos" className="text-[#9F1B64] underline">Ver más</Link>
+       <Link to="/demos" className="text-[#9F1B64] underline">Ver más</Link>
      </div>
       <MusicaMas />
       <div className="flex justify-between items-center">

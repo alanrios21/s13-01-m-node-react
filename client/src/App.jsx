@@ -14,6 +14,8 @@ import PaymentMehod from "./pages/Pay/PaymentMehod";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Inicio from "./pages/Inicio/Inicio";
+import Inicio2 from "./pages/Inicio/Inicio2";
+import Demos from "./pages/Demos/Demos";
 const stripePromise = loadStripe(
   "pk_test_51O4gkgD3YXfw7A9OCrcmMR7KH5RB0lHjigzLXqtap7qigk2Le0kh9Q0OGTjSaYpdSTRTcJS1yIFA9jIVML956B9O00NqWfPeG6"
 );
@@ -27,6 +29,7 @@ function App() {
           <Route errorElement={<ErrorPage />}>
             <Route index element={<Inicio />} />
             <Route path="videos" element={<Videos />} />
+            <Route path="demos" element={<Demos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
             <Route
@@ -42,6 +45,7 @@ function App() {
             <Route path="profile/:id" element={<ProfileFill />}></Route>
           </Route>
         </Route>
+        <Route path="/inicio" element={<Inicio2 />} />
         <Route path="/auth">
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
