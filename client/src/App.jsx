@@ -17,6 +17,7 @@ import Inicio from "./pages/Inicio/Inicio";
 import Inicio2 from "./pages/Inicio/Inicio2";
 import Demos from "./pages/Demos/Demos";
 import Community from "./pages/Community/Community";
+import { RouterGuard } from "./components/Auth/RouterGuard";
 
 const stripePromise = loadStripe(
   "pk_test_51O4gkgD3YXfw7A9OCrcmMR7KH5RB0lHjigzLXqtap7qigk2Le0kh9Q0OGTjSaYpdSTRTcJS1yIFA9jIVML956B9O00NqWfPeG6"
@@ -30,7 +31,14 @@ function App() {
         <Route path="/" element={<Navbar />} errorElement={<ErrorPage />}>
           <Route errorElement={<ErrorPage />}>
             <Route index element={<Inicio />} />
-            <Route path="videos/:id" element={<Videos />} />
+            <Route
+              path="videos/:id"
+              element={
+                <RouterGuard>
+                  <Videos />
+                </RouterGuard>
+              }
+            />
             <Route path="demos" element={<Demos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
@@ -45,7 +53,14 @@ function App() {
             />
             <Route path="/NotPay" element={<NotPay />} />
             <Route path="/crowdfounding" element={<PaymentMehod />} />
-            <Route path="profile/:id" element={<ProfileFill />}></Route>
+            <Route
+              path="profile/:id"
+              element={
+                <RouterGuard>
+                  <ProfileFill />
+                </RouterGuard>
+              }
+            ></Route>
           </Route>
         </Route>
         {/* <Route path="/inicio" element={<Inicio2 />} /> */}
