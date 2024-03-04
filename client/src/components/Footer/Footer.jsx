@@ -19,7 +19,7 @@ const Footer = () => {
                 className="h-8 me-3"
                 alt="Roundpeople Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
                 ROUNDPEOPLE
               </span>
             </a>
