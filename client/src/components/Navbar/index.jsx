@@ -197,7 +197,7 @@ const Navbar = () => {
               ref={ref}
               className="loading h-1.5 w-[0%] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-200 absolute z-40 top-50"
             ></div>
-            <section className="w-3/4 m-auto">
+            <section className="w-full ">
               <Outlet />
             </section>
           </main>

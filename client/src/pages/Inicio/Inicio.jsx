@@ -5,7 +5,9 @@ import Footer from "../../components/Footer/Footer";
 const Inicio = () => {
   return (
     <div>
-      <InicioForm />
+      <div className="w-3/4 m-auto">
+        <InicioForm />
+      </div>
       <div className="">
         <Footer />
       </div>
