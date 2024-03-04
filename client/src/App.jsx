@@ -30,7 +30,7 @@ function App() {
         <Route path="/" element={<Navbar />} errorElement={<ErrorPage />}>
           <Route errorElement={<ErrorPage />}>
             <Route index element={<Inicio />} />
-            <Route path="videos" element={<Videos />} />
+            <Route path="videos/:id" element={<Videos />} />
             <Route path="demos" element={<Demos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />

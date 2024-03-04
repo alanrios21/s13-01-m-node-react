@@ -30,7 +30,7 @@ export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
       <div className="flex justify-between">
         <p className="font-medium">{title}</p>{" "}
         <p className="underline font-semibold text-secondary">
-          <Link to="/">Ver todo</Link>
+          <Link to={link}>Ver todo</Link>
         </p>
       </div>
       <div className="flex mt-4 overflow-hidden">
