@@ -14,6 +14,7 @@ import PaymentMehod from "./pages/Pay/PaymentMehod";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Inicio from "./pages/Inicio/Inicio";
+import Community from "./pages/Community/Community";
 const stripePromise = loadStripe(
   "pk_test_51O4gkgD3YXfw7A9OCrcmMR7KH5RB0lHjigzLXqtap7qigk2Le0kh9Q0OGTjSaYpdSTRTcJS1yIFA9jIVML956B9O00NqWfPeG6"
 );
@@ -29,6 +30,7 @@ function App() {
             <Route path="videos" element={<Videos />} />
             <Route path="music" element={<MyMusic />} />
             <Route path="my-video" element={<TuVideo />} />
+            <Route path="community" element={<Community />} />
             <Route
               path="/pay"
               element={

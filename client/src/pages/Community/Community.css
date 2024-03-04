@@ -1,0 +1,36 @@
+.title-artist{
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+.title-bandas{
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+.container-img-artists{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+    margin-left: -10px;
+}
+
+.container-img-artists img{
+    padding-left: 10px;
+}
+
+.container-img-bandas img{
+    padding-left: 50px;
+}
+
+.container-img-bandas{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-left: -50px;
+}
