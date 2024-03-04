@@ -15,6 +15,7 @@ import { logout } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useLoadingBar } from "../../hooks/useLoadingBar";
 import "./styles.css";
+import Footer from "../Footer/Footer";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -61,7 +62,9 @@ const Navbar = () => {
               <img
                 src={menuOpen ? close1 : menu1}
                 alt={menuOpen ? "Close" : "Menu"}
-                className={`cursor-pointer mr-4 w-6 ${!user ? "hidden" : "block"}`}
+                className={`cursor-pointer mr-4 w-6 ${
+                  !user ? "hidden" : "block"
+                }`}
                 onClick={toggleMenu}
               />
               {/* )} */}
@@ -69,30 +72,34 @@ const Navbar = () => {
             </div>
 
             {/* Middle buttons  */}
-            
+
             <div>
-
-            <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
-              <Link to="/" className="hover:text-[#ECBA3B] text-white px-4 ">
-                Inicio
-              </Link>
-              <Link to="#" className="hover:text-[#ECBA3B] text-white px-4 ">
-                Explorar
-              </Link>
-              <Link to="#" className="hover:text-[#ECBA3B] text-white px-4">
-                Contáctanos
-              </Link>
-            </div>
-
+              <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
+                <Link to="/" className="hover:text-[#ECBA3B] text-white px-4 ">
+                  Inicio
+                </Link>
+                <Link to="#" className="hover:text-[#ECBA3B] text-white px-4 ">
+                  Explorar
+                </Link>
+                <Link to="#" className="hover:text-[#ECBA3B] text-white px-4">
+                  Contáctanos
+                </Link>
+              </div>
             </div>
 
             {/* Right Buttons  */}
 
             <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
-              <Link to="/auth/login" className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md ">
+              <Link
+                to="/auth/login"
+                className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md "
+              >
                 Inicio
               </Link>
-              <Link to="/auth/register" className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md ">
+              <Link
+                to="/auth/register"
+                className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md "
+              >
                 Regístrate
               </Link>
             </div>
@@ -104,7 +111,11 @@ const Navbar = () => {
               menuOpen ? "show" : "hide"
             } `}
           >
-            <ul className={`flex flex-col p-3 h-screen relative ${!user ? "hidden" : "block"}`}>
+            <ul
+              className={`flex flex-col p-3 h-screen relative ${
+                !user ? "hidden" : "block"
+              }`}
+            >
               <li className="py-2">
                 <Link to="/" className="text-white" onClick={closeMenu}>
                   <img
@@ -197,9 +208,10 @@ const Navbar = () => {
               ref={ref}
               className="loading h-1.5 w-[0%] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-200 absolute z-40 top-50"
             ></div>
-            <section className="w-full ">
+            <section className="w-3/4 m-auto">
               <Outlet />
             </section>
+            <Footer />
           </main>
         </div>
       </nav>
