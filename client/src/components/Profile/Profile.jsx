@@ -11,6 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { ShowProfileNetworks } from "./ShowProfileNetworks";
 import { ShowMultimedia } from "./ShowMultimedia";
 import { getProfile, updateProfile } from "../../api/profile";
+import { useUploadFromProfile } from "../../hooks/useUploadMultimedia.js";
 
 export const Profile = () => {
   const { user: authUser } = useAuth();
@@ -23,10 +24,7 @@ export const Profile = () => {
     btn2: "Guardar cambios",
   });
 
-  const [textError, setTextError] = useState({
-    error1: "",
-    error2: "",
-  });
+  const { handleFileChange, handleUpload } = useUploadFromProfile();
 
   const [formData, setFormData] = useState({
     profileImage: tecladista,
@@ -38,8 +36,13 @@ export const Profile = () => {
 
   useEffect(() => {
     setIsMySelf(authUser?.user.id === params.id);
+    onMountHook();
+  }, [authUser, params.id]);
 
+  const onMountHook = () => {
     getProfile(params.id).then((data) => {
+      data.videos = data.videos.slice(0, 4);
+
       setUser(data);
       setFormData({
         profileImage: data.profileImage,
@@ -49,7 +52,7 @@ export const Profile = () => {
         musicalInfluence: data.musical_influence,
       });
     });
-  }, [authUser, params.id]);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -74,6 +77,10 @@ export const Profile = () => {
     } catch (error) {
       setBtnText({ ...btnText, btn1: "Guardar cambios" });
     }
+  };
+
+  const submitMultimediaDone = async (data) => {
+    setUser({ ...user, videos: [data, ...user.videos] });
   };
 
   return (
@@ -179,7 +186,7 @@ export const Profile = () => {
 
         {/* Sección Contenido Multimedia */}
 
-        <div className="p-8">
+        <div className="p-8 overflow-hidden max-w-[75%]">
           <h2 className="font-semibold text-lg">Contenido Multimedia </h2>
           {isMySelf && (
             <h3>¡Haz que tu perfil cobre vida con tu mejor material!</h3>
@@ -190,6 +197,7 @@ export const Profile = () => {
               title={"Demos"}
               type={MULTIMEDIA_TYPE.VIDEO}
               items={user?.videos}
+              onChange={handleFileChange}
             ></ShowMultimedia>
           </div>
 
@@ -198,6 +206,7 @@ export const Profile = () => {
               title={"Videos"}
               type={MULTIMEDIA_TYPE.VIDEO}
               items={user?.videos}
+              onChange={handleFileChange}
             ></ShowMultimedia>
           </div>
 
@@ -206,12 +215,18 @@ export const Profile = () => {
               title={"Fotos"}
               type={MULTIMEDIA_TYPE.IMAGE}
               items={user?.images}
+              onChange={handleFileChange}
             ></ShowMultimedia>
           </div>
 
           <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
             {isMySelf && (
-              <button className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50">
+              <button
+                className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
+                onClick={() => {
+                  handleUpload(submitMultimediaDone);
+                }}
+              >
                 Guardar cambios
               </button>
             )}

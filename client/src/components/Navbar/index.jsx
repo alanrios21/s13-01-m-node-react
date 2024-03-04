@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import menu1 from "../../assets/menu1.png";
 import logo from "../../assets/logo.png";
@@ -13,13 +13,16 @@ import close1 from "../../assets/close1.png";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+import { useLoadingBar } from "../../hooks/useLoadingBar";
 import "./styles.css";
-import { httpInstance } from "../../api/httpInstance";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { logout: logoutUser, user } = useAuth();
-  const {user:  userHook} = useAuth() // Nuevo por Andres para llamar al Usuario
+
+  const { ref } = useLoadingBar();
+
+  const { user: userHook } = useAuth(); // Nuevo por Andres para llamar al Usuario
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -48,8 +51,8 @@ const Navbar = () => {
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
           <div className="flex justify-between items-center px-4">
             <div className="flex  items-center">
-            {/* Nuevo por Andres para llamar al Usuario */}
-            {userHook && (
+              {/* Nuevo por Andres para llamar al Usuario */}
+              {userHook && (
                 <div className="text-[#ECBA3B] mr-4">
                   {userHook.firstName} {userHook.lastName}
                 </div>
@@ -160,6 +163,10 @@ const Navbar = () => {
             </ul>
           </div>
           <main className="grid w-full main-navbar overflow-y-scroll">
+            <div
+              ref={ref}
+              className="loading h-1.5 w-[0%] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-200 absolute z-40 top-50"
+            ></div>
             <section className="w-3/4 m-auto">
               <Outlet />
             </section>

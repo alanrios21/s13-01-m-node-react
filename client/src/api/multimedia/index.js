@@ -1,6 +1,11 @@
 import { httpInstance } from "../httpInstance";
 
-export const uploadVideo = async (formData) => {
+const onUploadProgress = (event, callback) => {
+  const percentCompleted = Math.round((event.loaded * 100) / event.total);
+  callback(percentCompleted);
+};
+
+export const uploadVideo = async (formData, callback) => {
   try {
     const response = await httpInstance.post(
       "/multimedia/upload/video",
@@ -10,6 +15,7 @@ export const uploadVideo = async (formData) => {
           "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
+        onUploadProgress: (event) => onUploadProgress(event, callback),
       }
     );
 
@@ -19,7 +25,7 @@ export const uploadVideo = async (formData) => {
   }
 };
 
-export const uploadImage = async (formData) => {
+export const uploadImage = async (formData, callback) => {
   try {
     const response = await httpInstance.post(
       "/multimedia/upload/image",
@@ -29,6 +35,7 @@ export const uploadImage = async (formData) => {
           "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
+        onUploadProgress: (event) => onUploadProgress(event, callback),
       }
     );
 
