@@ -1,6 +1,6 @@
 import { LoginForm } from "../../components/Auth/Login/LoginForm";
 import { Header } from "../../components/Header/Header";
-import { LogoText } from "../../components/LogoText/LogoText";
+// import { LogoText } from "../../components/LogoText/LogoText";
 
 export const LoginPage = () => {
   return (
@@ -10,7 +10,7 @@ export const LoginPage = () => {
       <div className="md:flex md:justify-center  ">
         {/* left column container */}
         <div className="hidden md:block  md:w-1/2  ">
-          <LogoText />
+          {/* <LogoText /> */}
         </div>
 
         {/* right column container */}
