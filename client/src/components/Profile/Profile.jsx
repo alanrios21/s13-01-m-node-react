@@ -67,7 +67,7 @@ export const Profile = () => {
 
       const response = await updateProfile(user.id, { ...rest, ...formData });
 
-      setBtnText({ ...btnText, btn1: "Actulizado" });
+      setBtnText({ ...btnText, btn1: "Actualizado" });
 
       setTimeout(() => {
         setBtnText({ ...btnText, btn1: "Guardar cambios" });
@@ -85,7 +85,7 @@ export const Profile = () => {
 
   return (
     <>
-      <section className="lg:w-3/4 m-auto ">
+      <section className=" m-auto ">
         {/* Sección Tu perfil sobre ti */}
         <div className="p-8 overflow-x-hidden">
           {isMySelf ? (
