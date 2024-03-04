@@ -48,7 +48,7 @@ function App() {
             <Route path="profile/:id" element={<ProfileFill />}></Route>
           </Route>
         </Route>
-        <Route path="/inicio" element={<Inicio2 />} />
+        {/* <Route path="/inicio" element={<Inicio2 />} /> */}
         <Route path="/auth">
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />

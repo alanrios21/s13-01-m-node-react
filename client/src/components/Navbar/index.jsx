@@ -48,9 +48,10 @@ const Navbar = () => {
   return (
     <div className="fixed w-full">
       <nav className="relative">
+        {/* NavBar horizontal */}
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
           <div className="flex justify-between items-center px-4">
-            <div className="flex  items-center">
+            <div className="flex items-center">
               {/* Nuevo por Andres para llamar al Usuario */}
               {userHook && (
                 <div className="text-[#ECBA3B] mr-4">
@@ -60,11 +61,40 @@ const Navbar = () => {
               <img
                 src={menuOpen ? close1 : menu1}
                 alt={menuOpen ? "Close" : "Menu"}
-                className="cursor-pointer mr-4 w-6"
+                className={`cursor-pointer mr-4 w-6 ${!user ? "hidden" : "block"}`}
                 onClick={toggleMenu}
               />
               {/* )} */}
               <img src={logo} alt="Logo" className={`h-8 w-36`} />
+            </div>
+
+            {/* Middle buttons  */}
+            
+            <div>
+
+            <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
+              <Link to="/" className="text-[#ECBA3B]  px-4 py-2 rounded-md hover:underline ">
+                Inicio
+              </Link>
+              <Link to="#" className="text-[#ECBA3B]  px-4 py-2 rounded-md hover:underline">
+                Explorar
+              </Link>
+              <Link to="#" className="text-[#ECBA3B]  px-4 py-2 rounded-md hover:underline">
+                Contáctanos
+              </Link>
+            </div>
+
+            </div>
+
+            {/* Right Buttons  */}
+
+            <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
+              <Link to="/auth/login" className="text-[#ECBA3B] hover:bg-[#ECBA3B] hover:text-white px-4 py-2 rounded-md ">
+                Inicio
+              </Link>
+              <Link to="/auth/register" className="text-[#ECBA3B] hover:bg-[#ECBA3B] hover:text-white px-4 py-2 rounded-md ">
+                Regístrate
+              </Link>
             </div>
           </div>
         </div>
@@ -74,7 +104,7 @@ const Navbar = () => {
               menuOpen ? "show" : "hide"
             } `}
           >
-            <ul className="flex flex-col p-3 h-screen relative">
+            <ul className={`flex flex-col p-3 h-screen relative ${!user ? "hidden" : "block"}`}>
               <li className="py-2">
                 <Link to="/" className="text-white" onClick={closeMenu}>
                   <img
