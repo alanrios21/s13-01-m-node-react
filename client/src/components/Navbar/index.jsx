@@ -48,9 +48,10 @@ const Navbar = () => {
   return (
     <div className="fixed w-full">
       <nav className="relative">
+        {/* NavBar horizontal */}
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
           <div className="flex justify-between items-center px-4">
-            <div className="flex  items-center">
+            <div className="flex items-center">
               {/* Nuevo por Andres para llamar al Usuario */}
               {userHook && (
                 <div className="text-[#ECBA3B] mr-4">
@@ -65,6 +66,10 @@ const Navbar = () => {
               />
               {/* )} */}
               <img src={logo} alt="Logo" className={`h-8 w-36`} />
+            </div>
+            <div className="flex gap-2">
+              <button className="text-[#ECBA3B] hover:bg-[#ECBA3B] hover:text-white px-4 py-2 rounded-md ">Inicio</button>
+              <button className="text-[#ECBA3B] hover:bg-[#ECBA3B] hover:text-white px-4 py-2 rounded-md ">Registrate</button>
             </div>
           </div>
         </div>
