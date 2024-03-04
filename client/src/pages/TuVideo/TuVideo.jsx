@@ -24,7 +24,7 @@ const TuVideo = () => {
 
     // Enviar el archivo al endpoint
     httpInstance
-      .post("/multimedia/upload/video", formData, {
+      .post("http://localhost:5173/videos", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
