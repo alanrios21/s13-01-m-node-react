@@ -9,9 +9,9 @@
 
 ## Deploys
 
-frontend : https://roundpeople.netlify.app/
-backend: https://roundpeopleapi.up.railway.app
-pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
+* Frontend : https://roundpeople.netlify.app/
+* Backend: https://roundpeopleapi.up.railway.app
+* Pruebas de backend: https://roundpeopleapi.up.railway.app/swagger/
 
 ## Descripción del proyecto:
 
