@@ -41,7 +41,7 @@ function App() {
             />
             <Route path="demos" element={<Demos />} />
             <Route path="music" element={<MyMusic />} />
-            <Route path="my-video" element={<TuVideo />} />
+            <Route path="my-video/:id" element={<TuVideo />} />
             <Route path="community" element={<Community />} />
             <Route
               path="/pay"
