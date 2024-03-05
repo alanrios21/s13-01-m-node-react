@@ -1,55 +1,9 @@
-.contenedor-music{  
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.title-music{
-    font-weight: 600;
-    font-size: 30px;
-    margin-left: 75px;
-}
-
-.subtitle-music{
-    margin-top: 20px;
-    font-size: 25px;
-    margin-right: 380px;
-}
-
-.img-container{
-    margin-top: 30px;
-}
-
-.p-container{
-    margin-top: 10px;
-    color: #B8B8B8;
-    margin-right: 300px;
-}
-
-.icon-music{
-    position: relative;
-    bottom: 3px;
-    margin-right: 4px;
-}
 
 @media (max-width: 600px) {
-    .img-container{
-        width: 100%;
-        max-width: 260px;
+     .list-demos{
+        display: flex !important;
+        flex-direction: column !important;
     }
 
-    .p-container{
-        margin-right: 90px;
-    }
 
-    .subtitle-music{
-        margin-right: 180px;
-    }
-
-    .title-music{
-        margin-right: 130px;
-    }
 }

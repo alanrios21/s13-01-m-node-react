@@ -68,11 +68,11 @@ export const LoginForm = () => {
       <div className="bg-white p-4 rounded-md ">
         <form className="min-h[80vh] h-[88vh]">
           <h2 className="text-secondary font-semibold text-xl mt-8">
-            Inicia Sesion
+            Inicia Sesión
           </h2>
           <div className="form-group my-4">
             <label className="text-rp-gray text-sm">
-              Ingresa tu correo electronico
+              Ingresa tu correo electrónico
             </label>
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
@@ -126,7 +126,7 @@ export const LoginForm = () => {
             </div>
             <div className="mt-1">
               <a href="#" className="text-secondary underline text-sm">
-                Olvidaste tu contraseña?
+                ¿Olvidaste tu contraseña?
               </a>
             </div>
           </div>
@@ -148,7 +148,7 @@ export const LoginForm = () => {
           <div className="w-full relative grid place-items-center h-7 mt-4">
             <div className="h-[0.5px] w-full bg-gray-500"></div>
             <p className="text-sm text-rp-gray px-1 top-[2px] bg-white absolute">
-              otras opciones de inicio de sesion
+              Otras opciones de inicio de sesion
             </p>
           </div>
           <div className="flex flex-col gap-3 mt-4">

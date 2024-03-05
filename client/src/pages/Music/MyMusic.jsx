@@ -35,9 +35,8 @@ const MyMusic = () => {
      setUser({ ...user, videos: [data, ...user.videos] });
    };
   return (
-   <div className="p-8 overflow-hidden max-w-[75%]">
-   <h2 className="font-semibold  title-music">Tu Musica </h2>
-   <div>
+   <div className="p-8 overflow-hidden max-w-[100%] m-auto"> 
+         <div className="list-demos">
             <ShowVideoMultimedia
               title={"Demos"}
               type={MULTIMEDIA_TYPE.VIDEO}
