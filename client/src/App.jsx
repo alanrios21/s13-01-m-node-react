@@ -15,7 +15,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Inicio from "./pages/Inicio/Inicio";
 import Demos from "./pages/Demos/Demos";
-import Community from "./pages/Community/Community";
+// import Community from "./pages/Community/Community";
 import { RouterGuard } from "./components/Auth/RouterGuard";
 
 const stripePromise = loadStripe(
@@ -41,7 +41,7 @@ function App() {
             <Route path="demos" element={<Demos />} />
             <Route path="music/:id" element={<MyMusic />} />
             <Route path="my-video/:id" element={<TuVideo />} />
-            <Route path="community" element={<Community />} />
+            {/* <Route path="community" element={<Community />} /> */}
             <Route
               path="/pay"
               element={
