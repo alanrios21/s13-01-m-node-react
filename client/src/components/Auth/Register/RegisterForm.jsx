@@ -110,7 +110,7 @@ export const RegisterForm = () => {
           </div>
           <div className="form-group mt-3">
             <label className="text-rp-gray text-sm">
-              Ingresa tu correo electronico
+              Ingresa tu correo electrónico
             </label>
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
@@ -204,7 +204,7 @@ export const RegisterForm = () => {
             </div>
             <div>
               <label className="text-rp-gray text-sm mt-3">
-                Deseas ser colaborador?
+                ¿Deseas ser colaborador?
               </label>
               <div className="border rounded-md px-3 py-1 mt-1">
                 <select
@@ -236,7 +236,7 @@ export const RegisterForm = () => {
           <div className="w-full relative grid place-items-center h-7 mt-4">
             <div className="h-[0.5px] w-full bg-gray-500"></div>
             <p className="text-sm text-rp-gray px-1 top-[2px] bg-white absolute">
-              otras opciones de inicio de registro
+              Otras opciones de inicio de registro
             </p>
           </div>
           <div className="flex flex-col gap-3 mt-4">

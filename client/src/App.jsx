@@ -39,7 +39,7 @@ function App() {
               }
             />
             <Route path="demos" element={<Demos />} />
-            <Route path="music/:id" element={<MyMusic />} />
+            <Route path="demos/:id" element={<MyMusic />} />
             <Route path="my-video/:id" element={<TuVideo />} />
             {/* <Route path="community" element={<Community />} /> */}
             <Route

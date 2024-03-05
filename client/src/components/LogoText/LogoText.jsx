@@ -12,12 +12,13 @@ export const LogoText = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
         <h1 className="font-black m-8">COMPARTE</h1>
         <h1 className="m-8 ">
-          TU <span className="font-black">PASION</span>
+          TU <span className="font-black">PASIÓN</span>
         </h1>
         <h1 className="m-8 ">
-          <span className="font-black">POR</span>LA
-          <span className="font-black inline">MUSICA</span>
+          <span className="font-black">POR LA</span>
+          
         </h1>
+        <span className="font-black inline">MUSICA</span>
       </div>
     </div>
   );

@@ -82,7 +82,7 @@ const InicioForm = () => {
           <div className="flex justify-center items-center bg-[#450BB8] text-white p-4 mt-4 rounded-md mb-8">
             <div className="text-center">
               <p className="mb-2">
-                Ahora puedes ser parte de la creación apoyando proyecto o
+                Ahora puedes ser parte de la creación apoyando proyectos o
                 artistas a través de nuestra función de crowdfounding.
               </p>
               <Link to="/Crowdfounding" className="text-white hover:font-bold">
