@@ -14,7 +14,6 @@ import PaymentMehod from "./pages/Pay/PaymentMehod";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Inicio from "./pages/Inicio/Inicio";
-import Inicio2 from "./pages/Inicio/Inicio2";
 import Demos from "./pages/Demos/Demos";
 import Community from "./pages/Community/Community";
 import { RouterGuard } from "./components/Auth/RouterGuard";
@@ -40,8 +39,8 @@ function App() {
               }
             />
             <Route path="demos" element={<Demos />} />
-            <Route path="music" element={<MyMusic />} />
-            <Route path="my-video" element={<TuVideo />} />
+            <Route path="music/:id" element={<MyMusic />} />
+            <Route path="my-video/:id" element={<TuVideo />} />
             <Route path="community" element={<Community />} />
             <Route
               path="/pay"

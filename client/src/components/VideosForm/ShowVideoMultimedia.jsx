@@ -1,10 +1,10 @@
 import boton from "../../assets/Add multimedia.png";
-import { Link } from "react-router-dom";
-import { MULTIMEDIA_TYPE } from "../../utils/constants";
-import { useAuth } from "../../hooks/useAuth";
 
-export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
-  const { logout: user } = useAuth();
+import { MULTIMEDIA_TYPE } from "../../utils/constants";
+
+
+export const ShowVideoMultimedia = ({ title, link, items, type, onChange }) => {
+ 
   const typeVideo = (arr) => {
     if (!arr || arr.length === 0) return <p>No hay videos</p>;
     return arr.map((item, index) => (
@@ -32,7 +32,7 @@ export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
       <div className="flex justify-between">
         <p className="font-medium">{title}</p>{" "}
         <p className="underline font-semibold text-secondary">
-          <Link  to={"/profile/" + user?.user?.id}>Ver todo</Link>
+      
         </p>
       </div>
       <div className="flex mt-4 overflow-hidden">

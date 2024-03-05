@@ -207,7 +207,7 @@ export const Profile = () => {
               title={"Videos"}
               type={MULTIMEDIA_TYPE.VIDEO}
               items={user?.videos}
-              link={`/videos/${user?.id}`}
+              link={`/my-video/${user?.id}`}
               onChange={handleFileChange}
             ></ShowMultimedia>
           </div>
