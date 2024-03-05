@@ -16,7 +16,7 @@ export const LoginForm = () => {
     showPassword: false,
   });
 
-  const [bgColorActive, setbgColorActive] = useState(false)
+  const [bgColorActive, setbgColorActive] = useState(false);
 
   const validateForm = () => {
     const { email, password } = formData;
@@ -25,7 +25,7 @@ export const LoginForm = () => {
       clearError();
       return false;
     }
-    
+
     return true;
   };
 
@@ -60,13 +60,13 @@ export const LoginForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setbgColorActive(bgColorActive => true)
+    setbgColorActive((bgColorActive) => true);
   };
 
   return (
     <>
       <div className="bg-white p-4 rounded-md ">
-        <form>
+        <form className="min-h[80vh] h-[88vh]">
           <h2 className="text-secondary font-semibold text-xl mt-8">
             Inicia Sesion
           </h2>
@@ -137,7 +137,9 @@ export const LoginForm = () => {
             <button
               type="submit"
               onClick={handleSubmit}
-              className={`btn ${bgColorActive ? `bg-secondary` : `bg-rp-white-gray`} text-white w-full md:w-3/4 mt-3 rounded-lg py-1.5 font-semibold outline-none`}
+              className={`btn ${
+                bgColorActive ? `bg-secondary` : `bg-rp-white-gray`
+              } text-white w-full md:w-3/4 mt-3 rounded-lg py-1.5 font-semibold outline-none`}
             >
               {formData.loading ? "Loading..." : "Ingresar"}
             </button>

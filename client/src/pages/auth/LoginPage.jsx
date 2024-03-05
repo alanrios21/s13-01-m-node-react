@@ -4,7 +4,7 @@ import { LogoText } from "../../components/LogoText/LogoText";
 
 export const LoginPage = () => {
   return (
-    <main className="p-4 bg-primary font-lato  text-white">
+    <main className=" bg-primary font-lato  text-white">
       <Header />
       {/* Columns Container */}
       <div className="md:flex md:justify-center  ">
@@ -16,7 +16,7 @@ export const LoginPage = () => {
         {/* right column container */}
         <div className="w-full md:w-1/2 md:flex md:items-center">
           {/* Login Component */}
-          <div className="w-full">
+          <div className="w-full p-4">
             <LoginForm />
           </div>
         </div>
