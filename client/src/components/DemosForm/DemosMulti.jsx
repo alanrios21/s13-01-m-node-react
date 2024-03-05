@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Rockmantico from '../../assets/Rockmantico.mp4';
 import video1 from '../../assets/video1.mp4';
 import video2 from '../../assets/video2.mp4';
@@ -12,55 +12,45 @@ import video9 from '../../assets/video9.mp4';
 import video10 from '../../assets/video10.mp4';
 
 const DemosMulti = () => {
+  const videos = [
+    video10,
+    video7,
+    video6,
+    video8,
+    video4,
+    video9,
+    video2,
+    video1,
+    video3,
+    video5,
+    Rockmantico
+  ];
+
+  const videoRefs = useRef([]);
+
+  const handlePlay = (index) => {
+    videoRefs.current.forEach((video, i) => {
+      if (i !== index && !video.paused) {
+        video.pause();
+      }
+    });
+  };
 
   return (
-  <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-8 mt-8">
-      <video controls className='mb-4'>
-          <source src={video8} type="video/mp4" />
+    <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-8 mt-8">
+      {videos.map((video, index) => (
+        <video
+          key={index}
+          controls
+          className='mb-4 rounded-xl'
+          ref={(ref) => videoRefs.current[index] = ref}
+          onClick={() => handlePlay(index)}
+          onPlay={() => handlePlay(index)}
+        >
+          <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video6} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video10} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video3} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video4} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video5} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video2} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video9} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={Rockmantico} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video1} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video controls className='mb-4 rounded-xl'>
-          <source src={video7} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="flex justify-center mb-4 mt-4">
-      </div>  
+      ))}
     </div>
   );
 }
