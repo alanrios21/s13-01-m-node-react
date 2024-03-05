@@ -18,9 +18,12 @@ const MusicaMas = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-8">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-8 mt-4">
       {audios.map((audio, index) => (
-        <div key={index} className="flex items-center gap-4">
+        <div
+          key={index}
+          className="flex flex-col items-center gap-4 w-36 m-auto"
+        >
           <audio
             controls
             ref={(ref) => (audioRefs.current[index] = ref)}
@@ -30,10 +33,6 @@ const MusicaMas = () => {
             <source src={audio} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
-          <p className="flex-grow">
-            {/* Aquí puedes agregar el título del audio */}
-            Título del audio
-          </p>
         </div>
       ))}
     </div>
