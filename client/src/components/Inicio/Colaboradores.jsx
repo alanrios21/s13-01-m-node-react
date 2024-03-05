@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Colaboradores = ({ colaboradores }) => {
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 mb-8 mt-4">
+    <div className="grid grid-cols-4 xl:grid-cols-4 md:grid-cols-2  xs:grid-cols-1  gap-4 mb-8 mt-8">
       {colaboradores.map((colaborador) => (
         <Link
           to={`/profile/${colaborador.id}`}

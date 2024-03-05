@@ -24,7 +24,6 @@ const Navbar = () => {
   const { ref } = useLoadingBar();
 
   const { user: userHook } = useAuth(); // Nuevo por Andres para llamar al Usuario
-  console.log(user);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -106,7 +105,9 @@ const Navbar = () => {
             </div>
 
             {/* Profile is active */}
-            <div className={`${user ? "block " : "hidden"} pr-2`}>
+            <div
+              className={`${user ? "block " : "hidden"} hidden pr-2 md:block`}
+            >
               {user && "Bienvenido! : " + user.user.firstName}
             </div>
           </div>
