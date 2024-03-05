@@ -7,6 +7,11 @@ export default {
         roboto: ["Roboto"],
         lato: ["Lato"],
       },
+
+      screens: {
+        xs: "200px",
+      },
+
       objectFit: ["cover"],
       backgroundColor: {
         primary: "#2B1A4E",

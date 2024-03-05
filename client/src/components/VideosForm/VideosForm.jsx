@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom";
 import { useUploadFromProfile } from "../../hooks/useUploadMultimedia";
 import { MULTIMEDIA_TYPE } from "../../utils/constants";
 import { getProfile } from "../../api/profile";
+import { Skeleton } from "@mui/material";
 
 const VideosForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const params = useParams();
 
   const [isMySelf, setIsMySelf] = useState(
@@ -20,9 +21,14 @@ const VideosForm = () => {
   const { handleFileChange, handleUpload } = useUploadFromProfile();
 
   useEffect(() => {
-    getProfile(params.id).then((data) => {
-      setVideos(data.videos);
-    });
+    getProfile(params.id)
+      .then((data) => {
+        setLoading(false);
+        setVideos(data.videos);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   const handleDeleteSelectedVideos = async () => {
@@ -59,7 +65,19 @@ const VideosForm = () => {
         visualmente emocionante. Sigue compartiéndolos y lleva tu música a
         nuevos niveles de creatividad y expresión
       </p>
-      <VideosMulti videos={videos} />
+
+      {!loading ? (
+        <VideosMulti videos={videos} />
+      ) : (
+        <div className="grid grid-cols-3 min-h-[60vh]  xl:grid-cols-3 md:grid-cols-2  xs:grid-cols-1  gap-4 mb-8 mt-8">
+          <Skeleton animation="wave" height={340} width={`90%`} />
+          <Skeleton animation="wave" height={340} width={`90%`} />
+          <Skeleton animation="wave" height={340} width={`90%`} />
+          <Skeleton animation="wave" height={340} width={`90%`} />
+          <Skeleton animation="wave" height={340} width={`90%`} />
+          <Skeleton animation="wave" height={340} width={`90%`} />
+        </div>
+      )}
 
       <input
         id="file-upload"
@@ -78,7 +96,9 @@ const VideosForm = () => {
           </label>
           <button
             className="bg-[#2B1A4E] text-white rounded-md py-2 px-4 mt-2"
-            onClick={() => handleUpload(doneCallback)}
+            onClick={() => {
+              handleUpload(doneCallback);
+            }}
           >
             Subir
           </button>

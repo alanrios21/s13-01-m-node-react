@@ -8,9 +8,6 @@ export const ProfileFill = () => {
       <div className="w-3/4 m-auto">
         <Profile />
       </div>
-      <div className="  ">
-        <Footer />
-      </div>
     </>
   );
 };
