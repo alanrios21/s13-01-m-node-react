@@ -1,84 +1,67 @@
 import { useState, useEffect } from "react";
-// import ImgMusic from '../../assets/imgVideo.png';
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import { useAuth } from "../../hooks/useAuth";
+import { useParams } from "react-router-dom";
+import { getProfile } from "../../api/profile";
+import { useUploadFromProfile } from "../../hooks/useUploadMultimedia.js";
+import { ShowVideoMultimedia } from "../../components/VideosForm/ShowVideoMultimedia.jsx";
 import "./TuVideo.css";
-import { httpInstance } from "../../api/httpInstance";
+import {
+  MULTIMEDIA_TYPE,
+} from "../../utils/constants";
 
 const TuVideo = () => {
-  const [file, setFile] = useState(null);
-  const [filePreview, setFilePreview] = useState(null);
+  const [isMySelf, setIsMySelf] = useState(true);
+  const { user: authUser } = useAuth();
+  const params = useParams();
+ 
+  const {handleFileChange, handleUpload } = useUploadFromProfile();
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  
   useEffect(() => {
-    console.log("filePreview:", filePreview);
-  }, [filePreview]);
+    setIsMySelf(authUser?.user.id === params.id);
+    onMountHook();
+  }, [authUser, params.id]);
+  
 
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setFile(selectedFile);
-    setFilePreview(URL.createObjectURL(selectedFile));
+  const onMountHook = () => {
+    getProfile(params.id).then((data) => {
+      data.videos = data.videos.slice(0, 4);
+      setUser(data);  
+    });
   };
 
-  const handleFileUpload = () => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    // Enviar el archivo al endpoint
-    httpInstance
-      .post("/multimedia/upload/video", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error en la solicitud al servidor");
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        if (blob instanceof Blob) {
-          const previewURL = URL.createObjectURL(blob);
-          setFilePreview(previewURL);
-          setFile(null);
-        } else {
-          console.error("El objeto no es un Blob válido:", blob);
-        }
-      })
-      .catch((error) => {
-        console.error("Error al subir el archivo:", error);
-      });
+  const submitMultimediaDone = async (data) => {
+    setUser({ ...user, videos: [data, ...user.videos] });
   };
-
+  
   return (
-    <div>
-      <div className="contenedor-video">
-        <div className="title-video">
-          <h1>Tus videos</h1>
-        </div>
-        <div className="subtitle-video">
-          <h1>Videos</h1>
-        </div>
-        <div className="img-container">
-          {/* Mostrar la previsualización del archivo */}
-          {filePreview && (
-            <img
-              src={filePreview}
-              alt="Vista previa del video"
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-          )}
+      <div className="p-8 overflow-hidden max-w-[75%]">
+          <h2 className="font-semibold  title-video">Tus videos </h2>
+          <div>
+            <ShowVideoMultimedia
+              title={"Videos"}
+              type={MULTIMEDIA_TYPE.VIDEO}
+              items={user?.videos}
+              link={`/videos/${user?.id}`}
+              onChange={handleFileChange}
+            ></ShowVideoMultimedia>
+          </div>
+
+          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
+            {isMySelf && (
+              <button
+                className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
+                onClick={() => {
+                  handleUpload(submitMultimediaDone);
+                }}
+              >
+                Guardar cambios
+              </button>
+            )}
+          </div>
         </div>
 
-        <div className="p-container">
-          <p>
-            <PlayCircleIcon className="icon-video"></PlayCircleIcon>106
-            Reproducciones
-          </p>
-        </div>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleFileUpload}>Subir Archivo</button>
-      </div>
-    </div>
   );
 };
 
