@@ -47,7 +47,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full">
+    <div className="fixed w-full font-lato">
       <nav className="relative">
         {/* NavBar horizontal */}
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">

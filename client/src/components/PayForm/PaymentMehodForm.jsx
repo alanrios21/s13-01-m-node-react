@@ -51,7 +51,7 @@ const PaymentMethodForm = () => {
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
       <div className="w-full max-w-md mx-2">
         <div className="bg-white flex flex-col p-6 rounded-md">
-          <p className="text-lg mb-2 font-roboto text-center text-[#2B1A4E] font-bold">
+          <p className="text-lg mb-2  text-center text-[#2B1A4E] font-bold">
             ELEGIR MÉTODO DE DONACION
           </p>
           {paymentMethods.map((method, index) => (
@@ -69,7 +69,7 @@ const PaymentMethodForm = () => {
                 alt={method.name}
                 className="w-6 h-6"
               />
-              <p className="ml-2 font-roboto">{method.name}</p>
+              <p className="ml-2 ">{method.name}</p>
               {index === selectedPayment && (
                 <img src={chulo} alt="Selected" className="w-6 h-6 ml-auto" />
               )}
