@@ -206,7 +206,7 @@ export const Profile = () => {
 
             <div>
               <ShowMultimedia
-                title={"Videos"}
+                title={"Lista Videos"}
                 type={MULTIMEDIA_TYPE.VIDEO}
                 items={user?.videos}
                 link={`/videos/${user?.id}`}
@@ -219,38 +219,22 @@ export const Profile = () => {
                 title={"Musica"}
                 type={MULTIMEDIA_TYPE.MUSIC}
                 items={user?.videos}
-                link={`/music/${user?.id}`}
-                onChange={handleFileChange}
-              ></ShowMultimedia>
-            </div>
-
-            <div>
-              <ShowMultimedia
-                title={"Fotos"}
-                type={MULTIMEDIA_TYPE.IMAGE}
-                items={user?.images}
-                onChange={handleFileChange}
-              ></ShowMultimedia>
-            </div>
-            <div>
-              <ShowMultimedia
-                title={"Demos"}
-                type={MULTIMEDIA_TYPE.VIDEO}
-                items={user?.videos}
                 link={`/demos/${user?.id}`}
                 onChange={handleFileChange}
               ></ShowMultimedia>
             </div>
 
-            <div>
-              <ShowMultimedia
-                title={"Videos"}
-                type={MULTIMEDIA_TYPE.VIDEO}
-                items={user?.videos}
-                link={`/my-video/${user?.id}`}
-                onChange={handleFileChange}
-              ></ShowMultimedia>
-            </div>
+            {isMySelf && (
+              <div>
+                <ShowMultimedia
+                  title={"Subir Videos"}
+                  type={MULTIMEDIA_TYPE.VIDEO}
+                  items={user?.videos}
+                  link={`/my-video/${user?.id}`}
+                  onChange={handleFileChange}
+                ></ShowMultimedia>
+              </div>
+            )}
 
             <div>
               <ShowMultimedia

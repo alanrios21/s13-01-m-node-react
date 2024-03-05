@@ -140,16 +140,7 @@ const Navbar = () => {
                   <p> Perfil</p>
                 </Link>
               </li>
-              <li className="py-2">
-                <Link to="/explorar" className="text-white" onClick={closeMenu}>
-                  <img
-                    src={explorar}
-                    alt="Videos"
-                    className="inline-block w-6 mr-2"
-                  />
-                  <p>Explorar</p>
-                </Link>
-              </li>
+
               <li className="py-2">
                 <Link
                   to="/Crowdfounding"
@@ -164,28 +155,19 @@ const Navbar = () => {
                   <p>Crowdfounding</p>
                 </Link>
               </li>
+
               <li className="py-2">
                 <Link
-                  to="/Configuracion"
+                  to="/colaborators"
                   className="text-white"
                   onClick={closeMenu}
                 >
-                  <img
-                    src={settings}
-                    alt="settings"
-                    className="inline-block w-6 mr-2"
-                  />
-                  <p>Configuración</p>
-                </Link>
-              </li>
-              <li className="py-2">
-                <Link to="/support" className="text-white" onClick={closeMenu}>
                   <img
                     src={support}
                     alt="support"
                     className="inline-block w-6 mr-2"
                   />
-                  <p>Soporte</p>
+                  <p>Colaboradores</p>
                 </Link>
               </li>
               <li className="py-2 absolute bottom-12">
