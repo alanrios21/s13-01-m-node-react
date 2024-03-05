@@ -1,25 +1,12 @@
-import React from "react";
-import Rockmantico from "../../assets/Rockmantico.mp4";
-import video1 from "../../assets/video1.mp4";
-import video2 from "../../assets/video2.mp4";
-import video3 from "../../assets/video3.mp4";
-import video4 from "../../assets/video4.mp4";
-import video5 from "../../assets/video5.mp4";
-import video6 from "../../assets/video6.mp4";
-import video7 from "../../assets/video7.mp4";
-import video8 from "../../assets/video8.mp4";
-import video9 from "../../assets/video9.mp4";
-import video10 from "../../assets/video10.mp4";
-
-const VideosMulti = ({ videos }) => {
+const VideosMulti = ({ videos, loading }) => {
   return (
-    <div className="grid grid-cols-3  lg:grid-cols-3 xl:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-4 mb-8 mt-8">
+    <div className="grid grid-cols-3 min-h-[60vh]  xl:grid-cols-3 md:grid-cols-2  xs:grid-cols-1  gap-4 mb-8 mt-8">
       {videos.map((video, index) => (
         <video
           controls
           key={index}
           src={video.url}
-          className="mb-4 rounded-xl w-96 h-56 object-cover"
+          className="rounded-xl w-96 h-56 object-cover"
         >
           Your browser does not support the video tag.
         </video>

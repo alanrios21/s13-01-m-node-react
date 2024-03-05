@@ -83,4 +83,5 @@ export const instruments = [
 export const MULTIMEDIA_TYPE = {
   IMAGE: "image",
   VIDEO: "video",
+  MUSIC: "music",
 };
