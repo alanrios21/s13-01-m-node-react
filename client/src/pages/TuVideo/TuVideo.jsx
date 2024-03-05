@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-// import imgUpload from "../../assets/cargaVideos.png";
 import { useAuth } from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import { getProfile } from "../../api/profile";
 import { useUploadFromProfile } from "../../hooks/useUploadMultimedia.js";
-import { ShowMultimedia } from "../../components/Profile/ShowMultimedia.jsx";
+import { ShowVideoMultimedia } from "../../components/VideosForm/ShowVideoMultimedia.jsx";
+import "./TuVideo.css";
 import {
   MULTIMEDIA_TYPE,
 } from "../../utils/constants";
@@ -27,9 +27,7 @@ const TuVideo = () => {
   const onMountHook = () => {
     getProfile(params.id).then((data) => {
       data.videos = data.videos.slice(0, 4);
-
-      setUser(data);
-      
+      setUser(data);  
     });
   };
 
@@ -37,33 +35,20 @@ const TuVideo = () => {
     setUser({ ...user, videos: [data, ...user.videos] });
   };
   
-
   return (
-    <div>
-      <div className="contenedor-video">
-        <div className="title-video">
-          <h1>Tus videos</h1>
-        </div>
-        <div className="subtitle-video">
-          <h1>Videos</h1>
-        </div>
-        <input
-        id="file-upload"
-        type="file"
-        onChange={handleFileChange}
-        style={{ display: "none" }}
-      />
-     
-     <div>
-            <ShowMultimedia
+      <div className="p-8 overflow-hidden max-w-[75%]">
+          <h2 className="font-semibold  title-video">Tus videos </h2>
+          <div>
+            <ShowVideoMultimedia
               title={"Videos"}
               type={MULTIMEDIA_TYPE.VIDEO}
               items={user?.videos}
               link={`/videos/${user?.id}`}
               onChange={handleFileChange}
-            ></ShowMultimedia>
+            ></ShowVideoMultimedia>
           </div>
-      <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
+
+          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
             {isMySelf && (
               <button
                 className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
@@ -75,8 +60,8 @@ const TuVideo = () => {
               </button>
             )}
           </div>
-       </div>
-    </div>
+        </div>
+
   );
 };
 
