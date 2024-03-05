@@ -232,19 +232,47 @@ export const Profile = () => {
                 onChange={handleFileChange}
               ></ShowMultimedia>
             </div>
-          </div>
+            <div>
+              <ShowMultimedia
+                title={"Demos"}
+                type={MULTIMEDIA_TYPE.VIDEO}
+                items={user?.videos}
+                link={`/demos/${user?.id}`}
+                onChange={handleFileChange}
+              ></ShowMultimedia>
+            </div>
 
-          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
-            {isMySelf && (
-              <button
-                className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
-                onClick={() => {
-                  handleUpload(submitMultimediaDone);
-                }}
-              >
-                Subir multimedia
-              </button>
-            )}
+            <div>
+              <ShowMultimedia
+                title={"Videos"}
+                type={MULTIMEDIA_TYPE.VIDEO}
+                items={user?.videos}
+                link={`/my-video/${user?.id}`}
+                onChange={handleFileChange}
+              ></ShowMultimedia>
+            </div>
+
+            <div>
+              <ShowMultimedia
+                title={"Fotos"}
+                type={MULTIMEDIA_TYPE.IMAGE}
+                items={user?.images}
+                onChange={handleFileChange}
+              ></ShowMultimedia>
+            </div>
+
+            <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
+              {isMySelf && (
+                <button
+                  className="bg-secondary p-2 w-full md:w-1/3 rounded-lg text-slate-50"
+                  onClick={() => {
+                    handleUpload(submitMultimediaDone);
+                  }}
+                >
+                  Subir multimedia
+                </button>
+              )}
+            </div>
           </div>
         </section>
       )}

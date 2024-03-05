@@ -1,10 +1,10 @@
 import boton from "../../assets/Add multimedia.png";
-import { Link } from "react-router-dom";
-import { MULTIMEDIA_TYPE } from "../../utils/constants";
-import { useAuth } from "../../hooks/useAuth";
 
-export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
-  const { logout: user } = useAuth();
+import { MULTIMEDIA_TYPE } from "../../utils/constants";
+
+
+export const ShowVideoMultimedia = ({ title, link, items, type, onChange }) => {
+ 
   const typeVideo = (arr) => {
     if (!arr || arr.length === 0) return <p>No hay videos</p>;
     return arr.map((item, index) => (
@@ -32,10 +32,10 @@ export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
       <div className="flex justify-between">
         <p className="font-medium">{title}</p>{" "}
         <p className="underline font-semibold text-secondary">
-          <Link  to={"/profile/" + user?.user?.id}>Ver todo</Link>
+      
         </p>
       </div>
-      <div className="flex mt-4 overflow-hidden w-full flex-col  md:flex-row  items-center">
+      <div className="flex mt-4 overflow-hidden">
         <label htmlFor="file-upload" className="flex items-center min-w-20">
           <input
             id="file-upload"
@@ -45,7 +45,7 @@ export const ShowMultimedia = ({ title, link, items, type, onChange }) => {
           />
           <img className="block w-16 h-16" src={boton} alt="icono musical" />
         </label>
-        <div className="flex gap-6 max-w-max  lg:max-w-max xs:w-40 sm:w-80 md:w-96 overflow-hidden flex-col  md:flex-row">
+        <div className="flex gap-6 max-w-80 w-80 lg:max-w-max overflow-hidden ">
           {type === MULTIMEDIA_TYPE.VIDEO && typeVideo(items)}
           {type === MULTIMEDIA_TYPE.IMAGE && typeImage(items)}
         </div>
