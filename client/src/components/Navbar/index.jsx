@@ -44,6 +44,7 @@ const Navbar = () => {
     closeMenu();
     await logout();
     logoutUser();
+    navigate("/");
   };
 
   return (
@@ -51,7 +52,7 @@ const Navbar = () => {
       <nav className="relative">
         {/* NavBar horizontal */}
         <div className="left-0 top-0 w-full bg-[#2B1A4E] py-2 text-white">
-          <div className="flex justify-between items-center px-4">
+          <div className="flex justify-between items-center px-4 relative">
             <div className="flex items-center">
               {/* Nuevo por Andres para llamar al Usuario */}
               {userHook && (
@@ -71,44 +72,28 @@ const Navbar = () => {
               <img src={logo} alt="Logo" className={`h-8 w-36`} />
             </div>
 
-            {/* Middle buttons  */}
-
-            <div>
-              <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
-                <Link to="/" className="hover:text-[#ECBA3B] text-white px-4 ">
-                  Inicio
-                </Link>
-                <Link to="#" className="hover:text-[#ECBA3B] text-white px-4 ">
-                  Explorar
-                </Link>
-                <Link to="#" className="hover:text-[#ECBA3B] text-white px-4">
-                  Contáctanos
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Buttons  */}
-
             <div className={`flex gap-2 ${user ? "hidden " : "block "}`}>
               <Link
                 to="/auth/login"
-                className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md "
+                className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-lg "
               >
-                Inicio
+                Iniciar Sesión
               </Link>
               <Link
                 to="/auth/register"
-                className="text-[#ECBA3B] hover:bg-[#ECBA3B] underline hover:no-underline hover:text-white px-4 py-2 rounded-md "
+                className="text-[#ECBA3B] hover:bg-[#ECBA3B]  underline hover:no-underline hover:text-white px-4 py-2 rounded-lg "
               >
-                Regístrate
+                Registrarse
               </Link>
             </div>
 
             {/* Profile is active */}
             <div
-              className={`${user ? "block " : "hidden"} hidden pr-2 md:block`}
+              className={`${
+                user ? "block " : "hidden"
+              } hidden pr-2 md:block absolute right-4`}
             >
-              {user && "Bienvenido! : " + user.user.firstName}
+              {user && "Bienvenido! : " + user?.user?.firstName}
             </div>
           </div>
         </div>
