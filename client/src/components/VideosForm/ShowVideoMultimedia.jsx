@@ -29,27 +29,27 @@ export const ShowVideoMultimedia = ({ title, link, items, type, onChange }) => {
 
   return (
     <section className="lg:w-3/4 max-w-1/4 m-auto mt-6 overflow-hidden">
-      <div className="flex justify-between">
-        <p className="font-medium">{title}</p>{" "}
-        <p className="underline font-semibold text-secondary">
+    <div className="flex justify-between">
+      <p className="font-medium">{title}</p>{" "}
+      <p className="underline font-semibold text-secondary">
       
-        </p>
+      </p>
+    </div>
+    <div className="flex mt-4 overflow-hidden w-full flex-col  md:flex-row  items-center">
+      <label htmlFor="file-upload" className="flex items-center min-w-20">
+        <input
+          id="file-upload"
+          type="file"
+          onChange={(e) => onChange(e, type)}
+          style={{ display: "none" }}
+        />
+        <img className="block w-16 h-16" src={boton} alt="icono musical" />
+      </label>
+      <div className="flex gap-6 max-w-max  lg:max-w-max xs:w-40 sm:w-80 md:w-96 overflow-hidden flex-col  md:flex-row">
+        {type === MULTIMEDIA_TYPE.VIDEO && typeVideo(items)}
+        {type === MULTIMEDIA_TYPE.IMAGE && typeImage(items)}
       </div>
-      <div className="flex mt-4 overflow-hidden">
-        <label htmlFor="file-upload" className="flex items-center min-w-20">
-          <input
-            id="file-upload"
-            type="file"
-            onChange={(e) => onChange(e, type)}
-            style={{ display: "none" }}
-          />
-          <img className="block w-16 h-16" src={boton} alt="icono musical" />
-        </label>
-        <div className="flex gap-6 max-w-80 w-80 lg:max-w-max overflow-hidden ">
-          {type === MULTIMEDIA_TYPE.VIDEO && typeVideo(items)}
-          {type === MULTIMEDIA_TYPE.IMAGE && typeImage(items)}
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
   );
 };

@@ -36,17 +36,19 @@ const TuVideo = () => {
   };
   
   return (
-      <div className="p-8 overflow-hidden max-w-[75%]">
-          <h2 className="font-semibold  title-video">Tus videos </h2>
+      <div className="p-8 overflow-hidden max-w-[100%]">
+          <h2 className="font-semibold title-video">Tus videos </h2>
+          {isMySelf &&(
           <div>
             <ShowVideoMultimedia
               title={"Videos"}
               type={MULTIMEDIA_TYPE.VIDEO}
               items={user?.videos}
-              link={`/videos/${user?.id}`}
+              link={`/my-videos/${user?.id}`}
               onChange={handleFileChange}
             ></ShowVideoMultimedia>
           </div>
+          )}
 
           <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto md:w-full">
             {isMySelf && (

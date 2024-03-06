@@ -1,9 +1,1 @@
 
-@media (max-width: 600px) {
-     .list-demos{
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-
-}
