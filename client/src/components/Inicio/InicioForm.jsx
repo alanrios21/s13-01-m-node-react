@@ -45,7 +45,6 @@ const InicioForm = () => {
 
   return (
     <>
-      {loading && collabSkeleton()}
       <div>
         <h1 className="text-xl mt-8 mb-12">
           En RoundPeople, tendrás acceso a una amplia selección de videos y
@@ -75,6 +74,7 @@ const InicioForm = () => {
             Ver más
           </Link>
         </div>
+        {loading && collabSkeleton()}
         <Colaboradores colaboradores={colaboradores.slice(0, 4)} />
 
         <div className="items-center">

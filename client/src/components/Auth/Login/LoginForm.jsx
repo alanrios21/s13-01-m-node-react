@@ -45,6 +45,11 @@ export const LoginForm = () => {
 
     try {
       const user = await loginRequest(email, password);
+
+      if (user?.containErrors) {
+        throw new Error("Credenciales incorrectas");
+      }
+
       setFormData({ ...formData, loading: false });
       login(user);
       navigate("/");
