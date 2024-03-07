@@ -1,7 +1,7 @@
 # ROUNDPEOPLE
 <div align="center">
   <a>
-    <img src="https://github.com/No-Country/s13-01-m-node-react/blob/dinamic-profile-view/client/src/assets/logo-single.png" alt="LogotipoRoundPeople" width="50%">
+    <img src="https://github.com/No-Country/s13-01-m-node-react/blob/dinamic-profile-view/client/src/assets/logo-single.png" alt="LogotipoRoundPeople" width="35%">
   </a>
   <h2 align="center">Comparte tu pasión por la música</h2>
 </div>
@@ -20,39 +20,22 @@
     <b>ROUNDPEOPLE</b>
 </dd>
     <dd>
-  La plataforma que impulsa tu carrera musical.
-    </dd>
-  <dd>
-  No dejes que nada te detenga.
+  La plataforma que impulsa tu carrera musical.   No dejes que nada te detenga.
     </dd>
     <dd>
-  En ROUNDPEOPLE, creemos en el talento sin fronteras. 
+  En ROUNDPEOPLE, creemos en el talento sin fronteras, por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
       </dd>
-  <dd>
-  Por eso, te brindamos una plataforma que te ayuda a derribar las limitaciones y alcanzar tus metas musicales.
-  </dd>
   <dd>
   Aquí encontrarás:
    </dd>
-  <dd>
-  Un espacio para tu talento: Crea un perfil profesional que destaque tu experiencia y estilo.
-  </dd>
-  <dd>
-  Oportunidades a tu alcance: Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
-  </dd>
-  <dd>
-  Financiamiento para tus sueños: Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
-  </dd>
-  <dd>
-  Una comunidad vibrante: Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
+  
+ *  **Un espacio para tu talento:** Crea un perfil profesional que destaque tu experiencia y estilo.
+  *  **Oportunidades a tu alcance:**  Conecta con trabajos de sesión, proyectos y colaboraciones con otros artistas.
+ *  **Financiamiento para tus sueños:** Lanza campañas de crowdfunding para hacer realidad tus proyectos musicales.
+* **Una comunidad vibrante:**  Comparte ideas, colabora y recibe apoyo de otros músicos independientes.
+   <dd>
+ **ROUNDPEOPLE: Tu camino hacia el éxito musical, regístrate hoy y comienza a construir tu carrera**
     </dd>
-  <dd>
-  <b>ROUNDPEOPLE: Tu camino hacia el éxito musical.</b>
-    </dd>
-  <dd>
-  <b>Regístrate hoy y comienza a construir tu carrera.</b>
-    </dd>
-  </dd>
 </dl>
 <br/>
 
@@ -351,3 +334,14 @@
   </tbody>
 </table>
 <br>
+## Diseño UX/UI
+<dl>
+  Reporte diseño Ux/UI:  
+</dl>
+<br/>
+
+## Testing
+<dl>
+  Reportes de Pruebas:  https://drive.google.com/drive/folders/1eitbm6ZBMNQ0r-Kv2i3XPLObVs9XuOcp?usp=drive_link
+</dl>
+<br/>
