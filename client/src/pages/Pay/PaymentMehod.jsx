@@ -4,7 +4,7 @@ import PaymentMehodForm from "../../components/PayForm/PaymentMehodForm";
 
 const PaymentMehod = () => {
   return (
-    <div>
+    <div className="font-lato">
      <PaymentMehodForm />
     </div>
   );

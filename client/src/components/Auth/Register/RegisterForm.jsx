@@ -1,6 +1,7 @@
 import { register } from "../../../api/auth/index";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export const RegisterForm = () => {
     loading: false,
     showPassword: false,
   });
+
+  const [bgColorActive, setbgColorActive] = useState(false);
 
   const clearError = () => {
     setTimeout(() => {
@@ -69,11 +72,12 @@ export const RegisterForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setbgColorActive((bgColorActive) => true);
   };
 
   return (
     <>
-      <div className="w-72 bg-white p-4 rounded-md">
+      <div className=" bg-white p-4 rounded-md">
         <form>
           <h2 className="text-secondary font-semibold text-xl mt-8">
             Crea tu usuario
@@ -86,7 +90,7 @@ export const RegisterForm = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="form-control w-full border-none outline-none"
+                className="form-control w-full border-none outline-none text-rp-dark-gray"
                 placeholder="Correo electronico"
               ></input>
             </div>
@@ -99,14 +103,14 @@ export const RegisterForm = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="form-control w-full border-none outline-none"
+                className="form-control w-full border-none outline-none text-rp-dark-gray"
                 placeholder="Correo electronico"
               ></input>
             </div>
           </div>
           <div className="form-group mt-3">
             <label className="text-rp-gray text-sm">
-              Ingresa tu correo electronico
+              Ingresa tu correo electrónico
             </label>
             <div className="border rounded-md px-3 py-1 mt-1">
               <input
@@ -114,7 +118,7 @@ export const RegisterForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="form-control w-full border-none outline-none"
+                className="form-control w-full border-none outline-none text-rp-dark-gray"
                 placeholder="Correo electronico"
               ></input>
             </div>
@@ -129,7 +133,7 @@ export const RegisterForm = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="form-control w-full border-none outline-none"
+                className="form-control w-full border-none outline-none text-rp-dark-gray"
                 placeholder="Contraseña"
               ></input>
               <div className="absolute right-2">
@@ -169,7 +173,7 @@ export const RegisterForm = () => {
                 name="passwordConfirm"
                 value={formData.passwordConfirm}
                 onChange={handleChange}
-                className="form-control w-full border-none outline-none"
+                className="form-control w-full border-none outline-none text-rp-dark-gray"
                 placeholder="Contraseña"
               ></input>
               <div className="absolute right-2">
@@ -200,14 +204,14 @@ export const RegisterForm = () => {
             </div>
             <div>
               <label className="text-rp-gray text-sm mt-3">
-                Deseas ser colaborador?
+                ¿Deseas ser colaborador?
               </label>
               <div className="border rounded-md px-3 py-1 mt-1">
                 <select
                   name="collaborator"
                   value={formData.collaborator}
                   onChange={handleChange}
-                  className="form-control w-full border-none outline-none"
+                  className="form-control w-full border-none outline-none text-rp-dark-gray"
                 >
                   <option value="yes">Si</option>
                   <option value="no">No</option>
@@ -218,17 +222,21 @@ export const RegisterForm = () => {
           <div className="h-5 text-rp-error">
             {formData.error && <div className="">{formData.error}</div>}
           </div>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="btn bg-secondary text-white w-full mt-3 rounded-lg py-1.5 font-semibold outline-none"
-          >
-            {formData.loading ? "Loading..." : "Registrarse"}
-          </button>
+          <div className="flex justify-center items-center mt-10 pb-10 w-80 m-auto w-full md:w-3/4">
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className={`btn ${
+                bgColorActive ? `bg-secondary` : `bg-rp-white-gray`
+              } text-white w-full mt-3 rounded-lg py-1.5 font-semibold outline-none`}
+            >
+              {formData.loading ? "Loading..." : "Registrarse"}
+            </button>
+          </div>
           <div className="w-full relative grid place-items-center h-7 mt-4">
             <div className="h-[0.5px] w-full bg-gray-500"></div>
             <p className="text-sm text-rp-gray px-1 top-[2px] bg-white absolute">
-              otras opciones de inicio de registro
+              Otras opciones de inicio de registro
             </p>
           </div>
           <div className="flex flex-col gap-3 mt-4">
@@ -240,6 +248,13 @@ export const RegisterForm = () => {
               <img src="/facebook.svg" alt="" className=" left-2" />
               <p className="text-rp-gray">Registrate con Facebook</p>
             </div>
+            <p className="text-sm text-rp-gray px-1 top-[2px] bg-white text-center py-4">
+              ¿Ya tienes un usuario?{" "}
+              <Link className="text-secondary underline" to={"/auth/login"}>
+                Inicia sesión
+              </Link>
+              {/* <span className="text-secondary underline"></span> */}
+            </p>
           </div>
         </form>
       </div>

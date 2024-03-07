@@ -1,13 +1,13 @@
-import React from 'react';
-import InicioForm from '../../components/Inicio/InicioForm';
-
+import InicioForm from "../../components/Inicio/InicioForm";
 
 const Inicio = () => {
   return (
-    <div >
+    <div>
+      <div className="w-3/4 m-auto font-lato">
         <InicioForm />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Inicio
+export default Inicio;
