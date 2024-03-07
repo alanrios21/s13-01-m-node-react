@@ -334,6 +334,7 @@
   </tbody>
 </table>
 <br>
+
 ## Diseño UX/UI
 <dl>
   Reporte diseño Ux/UI:  
