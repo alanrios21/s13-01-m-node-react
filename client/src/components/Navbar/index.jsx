@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import menu1 from "../../assets/menu1.png";
 import logo from "../../assets/logo.png";
 import inicio from "../../assets/inicio.png";
 import perfil from "../../assets/perfil.png";
-import explorar from "../../assets/explorar.png";
 import crowd from "../../assets/crowd.png";
-import settings from "../../assets/settings.png";
 import support from "../../assets/support.png";
 import exit1 from "../../assets/exit1.png";
 import close1 from "../../assets/close1.png";
@@ -93,7 +91,7 @@ const Navbar = () => {
                 user ? "block " : "hidden"
               } hidden pr-2 md:block absolute right-4`}
             >
-              {user && "Bienvenido! : " + user?.user?.firstName}
+              {user && "Bienvenido " + user?.user?.firstName}
             </div>
           </div>
         </div>
