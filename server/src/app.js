@@ -16,6 +16,7 @@ const whitelist = process.env.WHITELIST ? process.env.WHITELIST.split(",") : [];
 server.use(
   cors({
     origin: whitelist,
+    credentials: true,
   })
 );
 server.name = "RoundPeople API";
