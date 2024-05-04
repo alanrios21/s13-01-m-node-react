@@ -22,23 +22,26 @@ const signUp = async (body) => {
         throw new Error("The email format is not valid.");
     }
 
-    const user = await prisma.user.create({
-        data: {
-            ...body,
-            birthday: new Date(body.birthday),
-            password: await encryptPassword(body.password),
-        },
-        select: {
-            ...Object.keys(body).reduce((acc, key) => {
-                if (key !== 'password') {
-                    acc[key] = true;
-                }
-                return acc;
-            }, {}),
-        },
-    });
-
-    return { ...user, ...validateUsers };
+    try {
+        const user = await prisma.user.create({
+            data: {
+                ...body,
+                password: await encryptPassword(body.password),
+            },
+            select: {
+                ...Object.keys(body).reduce((acc, key) => {
+                    if (key !== 'password') {
+                        acc[key] = true;
+                    }
+                    return acc;
+                }, {}),
+            },
+        });
+        return { ...user, ...validateUsers };
+    } catch (error) {
+        console.error('Error creating user:', error);
+        throw new Error('Error creating user');
+    }
 };
 
 

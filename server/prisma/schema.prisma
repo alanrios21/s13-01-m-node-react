@@ -14,10 +14,10 @@ model User {
   id                   String          @id @default(auto()) @map("_id") @db.ObjectId
   firstName            String
   lastName             String
-  country              String
-  province             String
-  birthday             DateTime
-  phone                String
+  country              String?
+  province             String?
+  birthday             DateTime?
+  phone                String?
   email                String          @unique
   password             String
   profileImage         String?         @default("https://www.svgrepo.com/show/437117/person-crop-circle.svg")
@@ -25,7 +25,7 @@ model User {
   about                String?
   musical_influence    String?
   collaborator         collaborator
-  musical_genre        Musical_genre
+  musical_genre        Musical_genre?
   posts                Posts[]
   donations            Donation[]
   images               Image[]
