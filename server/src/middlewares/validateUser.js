@@ -6,11 +6,11 @@ async function validateUser(body) {
         { field: "firstName", message: "This field is required, please enter First Name." },
         { field: "lastName", message: "This field is required, please enter Last Name." },
         { field: "email", message: "This field is required, please enter an e-mail address." },
-        { field: "country", message: "This field is required, please enter Country." },
-        { field: "province", message: "This field is required, please enter Province." },
+        //{ field: "country", message: "This field is required, please enter Country." },
+        //{ field: "province", message: "This field is required, please enter Province." },
         { field: "password", message: "This field is required, please enter a password." },
-        { field: "phone", message: "This field is required, please enter a phone number." },
-        { field: "birthday", message: "This field is required, please enter a birthday." },
+        //{ field: "phone", message: "This field is required, please enter a phone number." },
+        //{ field: "birthday", message: "This field is required, please enter a birthday." },
     ];
 
     const missingField = requiredFields.find((field) => !body[field.field]);
