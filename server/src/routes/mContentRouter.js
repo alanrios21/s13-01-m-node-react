@@ -24,6 +24,9 @@ const isAuthenticated = (req, res, next) => {
         if (decoded.id !== userId) {
             return res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
         }
+
+        req.userId = userId;
+
         next();
     });
 };
@@ -95,7 +98,7 @@ router.post('/upload/image', isAuthenticated, upload.single('image'), async (req
         const image = await prisma.image.create({
             data: {
                 url: result.url,
-                userId: req.session.userId
+                userId: req.userId
             },
         });
 
@@ -154,7 +157,7 @@ router.post('/upload/video', isAuthenticated, uploadV.single('video'), async (re
         const video = await prisma.video.create({
             data: {
                 url: result.url,
-                userId: req.session.userId
+                userId: req.userId
             },
         });
 
@@ -212,7 +215,7 @@ router.post('/upload/music', isAuthenticated, uploadM.single('track'), async (re
         const video = await prisma.music.create({
             data: {
                 url: result.url,
-                userId: req.session.userId
+                userId: req.userId
             },
         });
 
@@ -293,7 +296,7 @@ router.delete('/:type/:id', isAuthenticated, async (req, res) => {
 
         // Find the user by ID
         const user = await prisma.user.findUnique({
-            where: { id: req.session.userId },
+            where: { id: req.userId },
             include: {
                 [field]: true, // Include the field (images, videos, music) in the query
             },
@@ -321,7 +324,7 @@ router.delete('/:type/:id', isAuthenticated, async (req, res) => {
 
         // Update the user record in the database
         await prisma.user.update({
-            where: { id: req.session.userId },
+            where: { id: req.userId },
             data: {
                 [field]: {
                     set: user[field],
