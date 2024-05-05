@@ -5,16 +5,27 @@ const { Router } = require('express');
 const router = Router();
 const { uploadImage, uploadVideo, uploadMusic, deleteFile } = require('../utils/cloudinary/cloudinary.service');
 const CloudinaryProvider = require('../utils/cloudinary/cloudinaryConfig');
-
+const jwt = require('jsonwebtoken');
+const { TOKEN_SECRET } = process.env;
 
 
 // ! Middleware para verificar si hay un usuario autenticado o inicio la sesion.
 const isAuthenticated = (req, res, next) => {
-    if (req.session.userId) {
-        next();
-    } else {
-        res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
+    const userId = req.headers['x-user-id']
+    let token = req.headers['authorization']
+    if (!token && !userId) {
+        return res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
     }
+    token = token.split(' ')[1]
+    jwt.verify(token, TOKEN_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
+        }
+        if (decoded.id !== userId) {
+            return res.status(401).json({ error: 'Unauthorized, Please log in with email and password' });
+        }
+        next();
+    });
 };
 // Configurar multer para manejar la carga de archivos en memoria
 const upload = multer();

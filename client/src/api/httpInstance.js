@@ -13,7 +13,9 @@ httpInstance.interceptors.request.use(
     const user = localStorage.getItem("user");
     if (user) {
       const { userSessionID } = JSON.parse(user);
+      const { token } = JSON.parse(user);
       config.headers["X-User-ID"] = userSessionID;
+      config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },

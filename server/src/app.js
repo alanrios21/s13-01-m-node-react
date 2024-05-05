@@ -26,7 +26,7 @@ server.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 server.use(express.json());
 server.use(
   session({
-    secret: "X-User-ID",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
